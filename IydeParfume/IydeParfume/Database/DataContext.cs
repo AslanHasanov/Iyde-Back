@@ -13,6 +13,7 @@ namespace IydeParfume.Database
         }
 
         public DbSet<Navbar> Navbars { get; set; }
+        public DbSet<SubNavbar> SubNavbars { get; set; }
 
 
 
