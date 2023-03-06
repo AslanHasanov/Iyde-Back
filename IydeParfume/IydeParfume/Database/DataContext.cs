@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using IydeParfume.Extensions;
+using IydeParfume.Database.Models;
 
 namespace IydeParfume.Database
 {
@@ -11,7 +12,8 @@ namespace IydeParfume.Database
 
         }
 
-      
+        public DbSet<Navbar> Navbars { get; set; }
+
 
 
 
