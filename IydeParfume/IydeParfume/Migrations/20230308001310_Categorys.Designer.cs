@@ -4,6 +4,7 @@ using IydeParfume.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IydeParfume.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230308001310_Categorys")]
+    partial class Categorys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,92 +80,6 @@ namespace IydeParfume.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Navbars", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Rate")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Products", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductCategorys", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageNameFileSystem")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageNames")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Slider", b =>
@@ -236,36 +153,6 @@ namespace IydeParfume.Migrations
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.ProductCategory", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.Category", "Category")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IydeParfume.Database.Models.Product", "Product")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.ProductImage", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.SubNavbar", b =>
                 {
                     b.HasOne("IydeParfume.Database.Models.Navbar", "Navbar")
@@ -280,18 +167,11 @@ namespace IydeParfume.Migrations
             modelBuilder.Entity("IydeParfume.Database.Models.Category", b =>
                 {
                     b.Navigation("Categories");
-
-                    b.Navigation("ProductCategories");
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Navbar", b =>
                 {
                     b.Navigation("SubNavbars");
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.Product", b =>
-                {
-                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

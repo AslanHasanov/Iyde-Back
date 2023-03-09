@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IydeParfume.Database.Configurations
 {
-    public class SubNavbarConfiguration : IEntityTypeConfiguration<SubNavbar>
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<SubNavbar> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder
-               .ToTable("SubNavbars");
+               .ToTable("Categorys");
         }
     }
 }

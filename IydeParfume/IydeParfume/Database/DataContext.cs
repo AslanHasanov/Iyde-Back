@@ -15,6 +15,10 @@ namespace IydeParfume.Database
         public DbSet<Navbar> Navbars { get; set; }
         public DbSet<SubNavbar> SubNavbars { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
 
 
