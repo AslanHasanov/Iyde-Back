@@ -29,7 +29,7 @@ namespace IydeParfume.Areas.Admin.Controllers
         public async Task<IActionResult> List()
         {
             var model = await _dataContext.Sliders.Select(s => new ListItemViewModel(s.Id, _fileService
-                .GetFileUrl(s.BackgroundImageInFileSystem, UploadDirectory.Slider), s.CreatedAt, s.UpdatedAt))
+                .GetFileUrl(s.BackgroundImageInFileSystem, UploadDirectory.Sliders), s.CreatedAt, s.UpdatedAt))
                 .ToListAsync();
 
             return View(model);
@@ -53,7 +53,7 @@ namespace IydeParfume.Areas.Admin.Controllers
             }
 
 
-            var imageNameInSystem = await _fileService.UploadAsync(model.BackgroundImage, UploadDirectory.Slider);
+            var imageNameInSystem = await _fileService.UploadAsync(model.BackgroundImage, UploadDirectory.Sliders);
 
             AddSlider(model.BackgroundImage.FileName, imageNameInSystem);
 
@@ -91,7 +91,7 @@ namespace IydeParfume.Areas.Admin.Controllers
             var model = new UpdateViewModel
             {
                 Id = slider.Id,
-                BackgroundImageUrl = _fileService.GetFileUrl(slider.BackgroundImageInFileSystem, UploadDirectory.Slider),
+                BackgroundImageUrl = _fileService.GetFileUrl(slider.BackgroundImageInFileSystem, UploadDirectory.Sliders),
           
             };
 
@@ -111,9 +111,9 @@ namespace IydeParfume.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(model);
 
 
-            await _fileService.DeleteAsync(model.BackgroundImage.FileName, UploadDirectory.Slider);
+            await _fileService.DeleteAsync(model.BackgroundImage.FileName, UploadDirectory.Sliders);
 
-            var backGroundImageFileSystem = await _fileService.UploadAsync(model.BackgroundImage, UploadDirectory.Slider);
+            var backGroundImageFileSystem = await _fileService.UploadAsync(model.BackgroundImage, UploadDirectory.Sliders);
 
 
             await UpdateSliderImage(model.BackgroundImage.FileName, backGroundImageFileSystem);
@@ -142,7 +142,7 @@ namespace IydeParfume.Areas.Admin.Controllers
 
             if (slider is null) return NotFound();
 
-            await _fileService.DeleteAsync(slider.BackgroundImageInFileSystem, UploadDirectory.Slider);
+            await _fileService.DeleteAsync(slider.BackgroundImageInFileSystem, UploadDirectory.Sliders);
             _dataContext.Sliders.Remove(slider);
             await _dataContext.SaveChangesAsync();
 

@@ -2,8 +2,8 @@
 {
     public enum UploadDirectory
     {
-        Slider = 1,
-        Product = 2,
-        Category = 4,
+        Sliders = 1,
+        Products = 2,
+        Categorys = 4,
     }
 }
