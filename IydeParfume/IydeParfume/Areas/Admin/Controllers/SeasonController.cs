@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Route("admin/tag")]
+    [Route("admin/season")]
     public class SeasonController : Controller
     {
         private readonly DataContext _dataContext;
