@@ -19,6 +19,11 @@ namespace IydeParfume.Database
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Season> Seasons { get; set; }
+        public DbSet<ProductSeason> ProductSeasons { get; set; }
+        public DbSet<UsageTime> UsageTimes { get; set; }
+        public List<ProductUsageTime>? ProductUsageTimes { get; set; }
+
 
 
 
