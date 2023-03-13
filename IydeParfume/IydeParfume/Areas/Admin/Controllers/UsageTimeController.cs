@@ -1,7 +1,6 @@
 ﻿using IydeParfume.Areas.Admin.ViewModels.UsageTime;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
-using IydeParfume.Migrations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

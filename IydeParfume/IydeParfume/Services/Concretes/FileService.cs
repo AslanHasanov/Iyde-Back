@@ -51,11 +51,11 @@ namespace IydeParfume.Services.Concretes
 
             switch (uploadDirectory)
             {
-                case UploadDirectory.Slider:
+                case UploadDirectory.Sliders:
                     return $"{initialSegment}/sliders/{fileName}";
-                case UploadDirectory.Product:
+                case UploadDirectory.Products:
                     return $"{initialSegment}/products/{fileName}";
-                case UploadDirectory.Category:
+                case UploadDirectory.Categorys:
                     return $"{initialSegment}/category/{fileName}";
                 default:
 
@@ -74,11 +74,11 @@ namespace IydeParfume.Services.Concretes
 
             switch (uploadDirectory)
             {
-                case UploadDirectory.Slider:
+                case UploadDirectory.Sliders:
                     return Path.Combine(startPath, "sliders");
-                case UploadDirectory.Product:
+                case UploadDirectory.Products:
                     return Path.Combine(startPath, "products");
-                case UploadDirectory.Category:
+                case UploadDirectory.Categorys:
                     return Path.Combine(startPath, "category");
                 default:
                     throw new Exception("Something went wrong");

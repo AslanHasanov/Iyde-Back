@@ -22,7 +22,11 @@ namespace IydeParfume.Database
         public DbSet<Season> Seasons { get; set; }
         public DbSet<ProductSeason> ProductSeasons { get; set; }
         public DbSet<UsageTime> UsageTimes { get; set; }
-        public List<ProductUsageTime>? ProductUsageTimes { get; set; }
+        public DbSet<ProductUsageTime> ProductUsageTimes { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+   
+
 
 
 
