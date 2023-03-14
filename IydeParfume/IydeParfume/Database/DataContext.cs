@@ -27,6 +27,8 @@ namespace IydeParfume.Database
         public DbSet<ProductGroup> ProductGroups { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ProductBrand> ProductBrands { get; set; }
+        public DbSet<ProductSize> ProductSizes { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
 
 

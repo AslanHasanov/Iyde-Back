@@ -17,6 +17,7 @@ namespace IydeParfume.Database.Models
         public List<ProductUsageTime>? ProductUsageTimes { get; set; }
         public List<ProductGroup>? ProductGroups { get; set; }
         public List<ProductBrand>? ProductBrands { get; set; }
+        public List<ProductSize>? ProductSizes { get; set; }
 
 
 
