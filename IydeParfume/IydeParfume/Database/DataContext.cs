@@ -25,7 +25,9 @@ namespace IydeParfume.Database
         public DbSet<ProductUsageTime> ProductUsageTimes { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<ProductGroup> ProductGroups { get; set; }
-   
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<ProductBrand> ProductBrands { get; set; }
+
 
 
 
