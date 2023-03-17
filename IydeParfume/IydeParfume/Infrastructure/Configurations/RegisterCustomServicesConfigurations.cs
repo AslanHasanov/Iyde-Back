@@ -8,6 +8,7 @@ namespace IydeParfume.Infrastructure.Configurations
         public static void RegisterCustomServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IProductService, ProductService>();
 
         }
     }
