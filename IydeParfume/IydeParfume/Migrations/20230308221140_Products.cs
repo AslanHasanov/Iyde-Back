@@ -20,7 +20,7 @@ namespace IydeParfume.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rate = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<int>(type: "int", nullable: true),
+                    
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -64,6 +64,13 @@ namespace IydeParfume.Migrations
                 name: "IX_ProductCategory_ProductId",
                 table: "ProductCategory",
                 column: "ProductId");
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "Price",
+                table: "Products",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
         }
 
         /// <inheritdoc />

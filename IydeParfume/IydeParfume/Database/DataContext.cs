@@ -43,6 +43,8 @@ namespace IydeParfume.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly<Program>();
+            modelBuilder.Entity<Product>().Property(x => x.Price).HasColumnType("decimal(18,2)");
+
         }
     }
 }
