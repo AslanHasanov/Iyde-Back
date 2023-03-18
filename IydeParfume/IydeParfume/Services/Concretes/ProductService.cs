@@ -165,10 +165,10 @@ namespace IydeParfume.Services.Concretes
         {
             foreach (var seasonId in SeasonIds)
             {
-                if (!await _dataContext.Sizes.AnyAsync(c => c.Id == seasonId))
+                if (!await _dataContext.Seasons.AnyAsync(c => c.Id == seasonId))
                 {
                     ModelState.AddModelError(string.Empty, "Something went wrong");
-                    _logger.LogWarning($"Size with id({seasonId}) not found in db ");
+                    _logger.LogWarning($"Season with id({seasonId}) not found in db ");
                     return false;
                 }
             }
@@ -179,10 +179,10 @@ namespace IydeParfume.Services.Concretes
         {
             foreach (var usageTimeId in UsageTimeIds)
             {
-                if (!await _dataContext.Sizes.AnyAsync(c => c.Id == usageTimeId))
+                if (!await _dataContext.UsageTimes.AnyAsync(c => c.Id == usageTimeId))
                 {
                     ModelState.AddModelError(string.Empty, "Something went wrong");
-                    _logger.LogWarning($"Size with id({usageTimeId}) not found in db ");
+                    _logger.LogWarning($"UsageTime with id({usageTimeId}) not found in db ");
                     return false;
                 }
             }
@@ -193,10 +193,10 @@ namespace IydeParfume.Services.Concretes
         {
             foreach (var groupId in GroupIds)
             {
-                if (!await _dataContext.Sizes.AnyAsync(c => c.Id == groupId))
+                if (!await _dataContext.Groups.AnyAsync(c => c.Id == groupId))
                 {
                     ModelState.AddModelError(string.Empty, "Something went wrong");
-                    _logger.LogWarning($"Size with id({groupId}) not found in db ");
+                    _logger.LogWarning($"Group with id({groupId}) not found in db ");
                     return false;
                 }
             }
@@ -207,10 +207,10 @@ namespace IydeParfume.Services.Concretes
         {
             foreach (var brandId in BrandIds)
             {
-                if (!await _dataContext.Sizes.AnyAsync(c => c.Id == brandId))
+                if (!await _dataContext.Brands.AnyAsync(c => c.Id == brandId))
                 {
                     ModelState.AddModelError(string.Empty, "Something went wrong");
-                    _logger.LogWarning($"Size with id({brandId}) not found in db ");
+                    _logger.LogWarning($"Brand with id({brandId}) not found in db ");
                     return false;
                 }
             }
@@ -356,7 +356,7 @@ namespace IydeParfume.Services.Concretes
 
             var usageTimeInDb = product.ProductUsageTimes!.Select(bc => bc.UsageTimeId).ToList();
             var usageTimeToRemove = usageTimeInDb.Except(model.UsageTimeIds).ToList();
-            var usageTimeToAdd = model.SeasonIds.Except(usageTimeInDb).ToList();
+            var usageTimeToAdd = model.UsageTimeIds.Except(usageTimeInDb).ToList();
 
             product.ProductUsageTimes!.RemoveAll(bc => usageTimeToRemove.Contains(bc.UsageTimeId));
 

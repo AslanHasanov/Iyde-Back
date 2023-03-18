@@ -21,22 +21,18 @@ namespace IydeParfume.Areas.Admin.ViewModels.Product
 
         [Required]
         public List<int> SeasonIds { get; set; }
-        [Required]
         public List<SeasonListItemViewModel>? Seasons { get; set; }
 
         [Required]
         public List<int> UsageTimeIds { get; set; }
-        [Required]
         public List<UsageTimeListItemViewModel>? UsageTimes { get; set; }
 
         [Required]
         public List<int> GroupIds { get; set; }
-        [Required]
         public List<GroupListItemViewModel>? Groups { get; set; }
 
         [Required]
         public List<int> BrandIds { get; set; }
-        [Required]
         public List<BrandListItemViewModel>? Brands { get; set; }
 
 
