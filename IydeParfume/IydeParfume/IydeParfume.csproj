@@ -31,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewCompanents\" />
-    <Folder Include="Areas\Client\ViewModels\" />
     <Folder Include="Areas\Client\ViewCompanents\" />
   </ItemGroup>
 

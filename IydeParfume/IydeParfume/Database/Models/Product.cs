@@ -18,6 +18,8 @@ namespace IydeParfume.Database.Models
         public List<ProductGroup>? ProductGroups { get; set; }
         public List<ProductBrand>? ProductBrands { get; set; }
         public List<ProductSize>? ProductSizes { get; set; }
+        public List<BasketProduct>? BasketProducts { get; set; }
+
 
 
 

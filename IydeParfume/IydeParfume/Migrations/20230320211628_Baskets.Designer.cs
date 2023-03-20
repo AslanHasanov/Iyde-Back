@@ -4,6 +4,7 @@ using IydeParfume.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IydeParfume.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230320211628_Baskets")]
+    partial class Baskets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,38 +47,6 @@ namespace IydeParfume.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Baskets", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.BasketProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BasketId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BasketId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("basket-products", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Brand", b =>
@@ -633,25 +604,6 @@ namespace IydeParfume.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.BasketProduct", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.Basket", "Basket")
-                        .WithMany("BasketProducts")
-                        .HasForeignKey("BasketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IydeParfume.Database.Models.Product", "Product")
-                        .WithMany("BasketProducts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Basket");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Category", b =>
                 {
                     b.HasOne("IydeParfume.Database.Models.Category", "Parent")
@@ -817,11 +769,6 @@ namespace IydeParfume.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.Basket", b =>
-                {
-                    b.Navigation("BasketProducts");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Brand", b =>
                 {
                     b.Navigation("ProductBrands");
@@ -846,8 +793,6 @@ namespace IydeParfume.Migrations
 
             modelBuilder.Entity("IydeParfume.Database.Models.Product", b =>
                 {
-                    b.Navigation("BasketProducts");
-
                     b.Navigation("ProductBrands");
 
                     b.Navigation("ProductCategories");

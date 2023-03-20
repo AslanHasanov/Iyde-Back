@@ -1,4 +1,5 @@
-﻿using IydeParfume.Database.Models;
+﻿using IydeParfume.Areas.Client.ViewModels.Authentication;
+using IydeParfume.Database.Models;
 
 namespace DemoApplication.Services.Abstracts
 {
