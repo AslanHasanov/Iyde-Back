@@ -4,6 +4,7 @@ using IydeParfume.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IydeParfume.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230319232336_Roles")]
+    partial class Roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -528,40 +531,6 @@ namespace IydeParfume.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.UserActivation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ActivationToken")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ActivationUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ExpiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserActivations", (string)null);
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Category", b =>
                 {
                     b.HasOne("IydeParfume.Database.Models.Category", "Parent")
@@ -716,17 +685,6 @@ namespace IydeParfume.Migrations
                     b.Navigation("Roles");
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.UserActivation", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.User", "User")
-                        .WithOne("UserActivation")
-                        .HasForeignKey("IydeParfume.Database.Models.UserActivation", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Brand", b =>
                 {
                     b.Navigation("ProductBrands");
@@ -784,11 +742,6 @@ namespace IydeParfume.Migrations
             modelBuilder.Entity("IydeParfume.Database.Models.UsageTime", b =>
                 {
                     b.Navigation("ProductUsageTimes");
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.User", b =>
-                {
-                    b.Navigation("UserActivation");
                 });
 #pragma warning restore 612, 618
         }

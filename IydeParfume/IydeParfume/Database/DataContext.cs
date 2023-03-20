@@ -30,13 +30,16 @@ namespace IydeParfume.Database
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<Size> Sizes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserActivation> UserActivations { get; set; }
 
 
 
 
 
 
-
+        
 
 
 
