@@ -1,4 +1,4 @@
-﻿using DemoApplication.Services.Abstracts;
+﻿using IydeParfume.Services.Abstracts;
 using IydeParfume.Areas.Client.Validation;
 using IydeParfume.Areas.Client.ViewModels.Authentication;
 using IydeParfume.Contracts.Identity;

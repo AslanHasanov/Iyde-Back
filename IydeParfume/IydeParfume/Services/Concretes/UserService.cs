@@ -1,7 +1,7 @@
 ﻿using IydeParfume.Database.Models;
 using IydeParfume.Database;
 using IydeParfume.Services.Abstracts;
-using DemoApplication.Services.Abstracts;
+using IydeParfume.Services.Abstracts;
 using IydeParfume.Contracts.Identity;
 using IydeParfume.Exceptions;
 using IydeParfume.Areas.Client.ViewModels.Authentication;
@@ -59,7 +59,7 @@ namespace IydeParfume.Services.Concretes
 
         public string GetCurrentUserFullName()
         {
-            return $"{CurrentUser.FirstName} {CurrentUser.LastName}";
+            return $"{CurrentUser.FirstName} ";
         }
 
         public async Task<bool> CheckPasswordAsync(string? email, string? password)
@@ -112,6 +112,7 @@ namespace IydeParfume.Services.Concretes
             var user = new User
             {
                 FirstName = model.FirstName,
+                Phone=model.Phone,
                 Email = model.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
                 RoleId = 6,

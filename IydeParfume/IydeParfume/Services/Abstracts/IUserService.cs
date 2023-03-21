@@ -1,7 +1,7 @@
 ﻿using IydeParfume.Areas.Client.ViewModels.Authentication;
 using IydeParfume.Database.Models;
 
-namespace DemoApplication.Services.Abstracts
+namespace IydeParfume.Services.Abstracts
 {
     public interface IUserService
     {

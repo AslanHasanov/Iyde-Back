@@ -9,6 +9,9 @@ namespace IydeParfume.Infrastructure.Configurations
         {
             services.AddScoped<IFileService, FileService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IEmailService, SMTPService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserActivationService, UserActivationService>();
 
         }
     }

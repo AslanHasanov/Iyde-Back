@@ -1,4 +1,6 @@
 ﻿
+@using IydeParfume.Services.Abstracts
+@inject IUserService userService
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,17 @@
 
  
 
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/bootstrap.css">
     <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/style.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/about.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/basket.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/contract.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/login.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/delivery.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/products.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/shop.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/support-order.css">
+    <link asp-append-version="true" rel="stylesheet" href="~/Client/assets/css/support-payment.css">
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -71,7 +83,7 @@
 
                     </div>
                     <div class="accountBasket">
-                        <a class="account" href="Login-Register.html">
+                        <a class="account" asp-route="client-auth-register">
                             <svg class="logo3" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.97 29.4141C15.557 29.4141 9.22656 30.5349 9.22656 35.0235C9.22656 39.5122 15.5169 40.6731 22.97 40.6731C30.3829 40.6731 36.7116 39.5505 36.7116 35.0637C36.7116 30.5768 30.4231 29.4141 22.97 29.4141Z" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M22.9696 23.0114C27.8343 23.0114 31.7771 19.0668 31.7771 14.2021C31.7771 9.33739 27.8343 5.39453 22.9696 5.39453C18.1049 5.39453 14.1602 9.33739 14.1602 14.2021C14.1438 19.0503 18.0611 22.995 22.9075 23.0114H22.9696Z" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                             <span class="span1">Daxil ol</span>
                         </a>
@@ -418,5 +430,13 @@
     </script>
 
     <script src="~/Client/assets/js/app.js"></script>
+    <script src="~/Client/assets/js/about.js"></script>
+    <script src="~/Client/assets/js/shop.js"></script>
+    <script src="~/Client/assets/js/products.js"></script>
+    <script src="~/Client/assets/js/basket.js"></script>
+    <script src="~/Client/assets/js/loginregister.js"></script>
+    <script src="~/Client/assets/js/popper.js"></script>
+    <script src="~/Client/assets/js/bootstrap.min.js"></script>
+  
 </body>
 </html>
