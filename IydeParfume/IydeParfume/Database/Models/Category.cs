@@ -6,6 +6,8 @@ namespace IydeParfume.Database.Models
     {
         public string? Title { get; set; }
         public int? ParentId { get; set; }
+        public string Image { get; set; }
+        public string ImageInFileSystem { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get ; set; }

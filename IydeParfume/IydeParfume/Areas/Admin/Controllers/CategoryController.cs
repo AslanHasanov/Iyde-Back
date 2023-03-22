@@ -26,7 +26,8 @@ namespace IydeParfume.Areas.Admin.Controllers
         [HttpGet("list", Name = "admin-category-list")]
         public async Task<IActionResult> List()
         {
-            var model = await _dataContext.Categories.Select(c => new ListItemViewModel(c.Id, c.Title!, c.Parent!.Title!))
+            var model = await _dataContext.Categories.Select(c => new ListItemViewModel(c.Id, c.Title!, c.Parent!.Title!,
+                _fileService.GetFileUrl(c.ImageInFileSystem, UploadDirectory.Categories)))
                 .ToListAsync();
 
             return View(model);
@@ -50,13 +51,16 @@ namespace IydeParfume.Areas.Admin.Controllers
         public async Task<IActionResult> Add(AddViewModel model)
         {
             if (!ModelState.IsValid) return GetView(model);
-         
+
+            var imageNameInSystem = await _fileService.UploadAsync(model.Image!, UploadDirectory.Categories);
 
 
             var category = new Category
             {
                 Title = model.Title,
                 ParentId = model.CategoryIds,
+                Image = model.Image!.FileName,
+                ImageInFileSystem = imageNameInSystem
             };
             await _dataContext.Categories.AddAsync(category);
             await _dataContext.SaveChangesAsync();
@@ -84,17 +88,19 @@ namespace IydeParfume.Areas.Admin.Controllers
             var allCategories = await _dataContext.Categories.ToListAsync();
 
             if (category is null) return NotFound();
-         
+
 
             foreach (var item in allCategories)
             {
                 if (category.Id == item.ParentId)
                 {
+                    await _fileService.DeleteAsync(item.ImageInFileSystem, UploadDirectory.Categories);
                     _dataContext.Categories.Remove(item);
                     await _dataContext.SaveChangesAsync();
                 }
             }
 
+            await _fileService.DeleteAsync(category.ImageInFileSystem, UploadDirectory.Categories);
             _dataContext.Categories.Remove(category);
             await _dataContext.SaveChangesAsync();
             return RedirectToRoute("admin-category-list");

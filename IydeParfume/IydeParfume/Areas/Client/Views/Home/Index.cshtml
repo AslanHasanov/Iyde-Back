@@ -7,13 +7,14 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
 
         <div class="carousel-inner">
-            @foreach(var slider in Model.Sliders){
-                
-            <div class="carousel-item active">
-                <img src="~/@slider.BackGroundImageUrl">
-            </div>
+            @foreach (var slider in Model.Sliders)
+            {
+
+                <div class="carousel-item active">
+                    <img src="~/@slider.BackGroundImageUrl">
+                </div>
             }
-           
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,22 +48,16 @@
 <!-- Category-->
 <div class="categorySection">
     <div class="category">
-        <a class="category-box-child a" href="">
-            <img src="https://api.iyde.az/frontend/images/genders/gender_male.png?v=2" alt="category">
-            <h4>KİŞİ ƏTİRLƏRİ</h4>
-        </a>
-        <a class="category-box-child a" href="">
-            <img src="https://api.iyde.az/frontend/images/genders/gender_female.png?v=2" alt="category">
-            <h4>KİŞİ ƏTİRLƏRİ</h4>
-        </a>
-        <a class="category-box-child a" href="">
-            <img src="https://api.iyde.az/frontend/images/genders/gender_unisex.png?v=2" alt="category">
-            <h4>KİŞİ ƏTİRLƏRİ</h4>
-        </a>
-        <a class="category-box-child a" href="">
-            <img src="https://api.iyde.az/frontend/images/genders/gender_child.png?v=2" alt="category">
-            <h4>KİŞİ ƏTİRLƏRİ</h4>
-        </a>
+
+        @foreach (var item in Model.Categories)
+        {
+            <a class="category-box-child a">
+                <img src="~/@item.BImageUrl" alt="category">
+                <h4>@item.Title</h4>
+            </a>
+
+        }
+
     </div>
     <div class="more-category">
         <a href="/products">Bütün Ətİrlər</a>

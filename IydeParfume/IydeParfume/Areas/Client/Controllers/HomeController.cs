@@ -27,6 +27,10 @@ namespace IydeParfume.Areas.Client.Controllers
                 Sliders = await _dataContext.Sliders
                 .Select(s => new SliderViewModel(s.Id, _fileService.GetFileUrl(s.BackgroundImageInFileSystem, UploadDirectory.Sliders)))
                 .ToListAsync(),
+
+                Categories = await _dataContext.Categories
+                .OrderByDescending(c => c.Id).Take(3).Select(c => new CategoryViewModel(c.Id, c.Title!,
+                _fileService.GetFileUrl(c.ImageInFileSystem, UploadDirectory.Categories))).ToListAsync(),
             };
 
             return View(model);

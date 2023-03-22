@@ -24,7 +24,11 @@
                                 </select>
                                 <span asp-validation-for="CategoryIds" class="text-danger"></span>
                             </div>
-                          
+                            <div class="col-lg-4">
+                                <label asp-for="Image"></label>
+                                <input asp-for="Image" class="form-control">
+                                <span asp-validation-for="Image" class="text-danger"></span>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

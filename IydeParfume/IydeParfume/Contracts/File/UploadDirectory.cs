@@ -4,6 +4,6 @@
     {
         Sliders = 1,
         Products = 2,
-        Categorys = 4,
+        Categories = 4,
     }
 }
