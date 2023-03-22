@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 using AspNetCore.IServiceCollection.AddIUrlHelper;
 using IydeParfume.Infrastructure.Configurations;
+using IydeParfume.Areas.Client.Validation;
 
 namespace IydeParfume.Infrastructure.Extensions
 {
@@ -22,7 +23,7 @@ namespace IydeParfume.Infrastructure.Extensions
 
             services.AddUrlHelper();
 
-            //services.AddScoped<ValidationCurrentUserAttribute>();
+            services.AddScoped<CurrentUserAtributeValidation>();
 
             services.ConfigureMvc();
 

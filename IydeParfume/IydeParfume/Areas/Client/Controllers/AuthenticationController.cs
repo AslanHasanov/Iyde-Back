@@ -74,7 +74,7 @@ namespace IydeParfume.Areas.Client.Controllers
             if (await _dataContext.Users.AnyAsync(u => u.Email == model.Email && u.Roles!.Name == RoleNames.ADMIN))
             {
                 await _userService.SignInAsync(model!.Email, model!.Password, RoleNames.ADMIN);
-                return RedirectToRoute("admin-auth-login");
+                return RedirectToRoute("admin-product-list");
             }
 
             await _userService.SignInAsync(model!.Email, model!.Password);

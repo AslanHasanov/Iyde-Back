@@ -6,7 +6,7 @@
 
     <div class="left">
         <a href="">
-            <img src="assets/images/7572ae60-acae-11ed-8318-da8a3ba2c6ae_logo_iyde.avif" alt="">
+            <img src="~/Client/assets/images/unnamed.jpg" alt="">
         </a>
         <p>Daxil olmaq üçün məlumatları doldurun</p>
     </div>
@@ -14,19 +14,21 @@
     <div class="right d-flex align-items-center">
         <div class="auth-content">
             <div class="auth-content-header">
-                <a id="log" class="login">GİRİŞ</a>
-                <a id="reg" class="register">QEYDİYYAT</a>
+                <a asp-route="client-auth-login" id="log" class="login">GİRİŞ</a>
+                <a asp-route="client-auth-register" id="reg" class="register">QEYDİYYAT</a>
             </div>
 
-            <form class="auth-content-body log">
+            <form class="auth-content-body log" method="POST" asp-route="client-auth-login">
                 <div class="mb-4">
-                    <input name="phone" class="form-control" placeholder="Telefon">
+                    <input asp-for="Email" type="email"  class="form-control" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="mb-4">
-                    <input type="password" class="form-control" placeholder="Şifrə" name="password">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Şifrə" >
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="input-group">
-                    <button class="blackButton">
+                    <button type="submit" class="blackButton">
                         <i class="fa-regular fa-user"></i>
                         Daxİl ol
                     </button>
@@ -37,7 +39,7 @@
 
 
             <div class="auth-content-guest">
-                <a class="contunie-guest" href="/">Qonaq kimi davam edin</a>
+                <a asp-route="client-home-index" class="contunie-guest">Qonaq kimi davam edin</a>
             </div>
         </div>
     </div>
@@ -45,44 +47,3 @@
 </div>
 
 
-<div class="login-register-area section-space-y-axis-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <form method="POST" asp-route="client-auth-login">
-                    <div class="login-form">
-                        <h4 class="login-title">Login</h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <label>Email Address*</label>
-                                <input asp-for="Email" type="email" placeholder="Email Address" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                            <div class="col-lg-12">
-                                <label>Password</label>
-                                <input asp-for="Password" type="password" placeholder="Password" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="check-box">
-                                    <input type="checkbox" id="remember_me" />
-                                    <label for="remember_me">Remember me</label>
-                                </div>
-                            </div>
-                            <div class="col-md-4 pt-1 mt-md-0">
-                                <div class="forgotton-password_info">
-                                    <a href="#"> Forgotten pasward?</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 pt-5">
-                                <button type="submit" class="btn btn-custom-size lg-size btn-pronia-primary">
-                                    Login
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>

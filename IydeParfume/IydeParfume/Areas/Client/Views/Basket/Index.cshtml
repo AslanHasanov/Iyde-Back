@@ -1,0 +1,116 @@
+﻿@using IydeParfume.Areas.Client.ViewComponents
+
+<!-- Basket -->
+<div class="Basket-section">
+    <div class="container">
+        <div class="basketHeader">
+            <h5 class="title">SƏBƏTİM</h5>
+            <span>(4 məhsul)</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <div class="account">
+                    <div class="account-delivery">
+                        <div>
+                            <span>1</span>
+                            Çatdırılma
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <button type="button" class="btn addressAddCard" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <h4>Ünvan əlavə edin</h4>
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Tam ünvan</label>
+                                                    <input type="address" class="form-control" id="exampleFormControlInput1">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Şəhər/Rayon</label>
+                                                    <input type="address" class="form-control" id="exampleFormControlInput1">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Telefon</label>
+                                                    <input type="telephone" class="form-control" id="exampleFormControlInput1">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn blackButton">ÜNVAN YARAT</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label for="" class="address-card">
+                                    <div class="address-inner">
+                                        <h2 class="title">
+                                            Tam ünvan
+                                            <p>Qalubiyye bina27 menzil 65</p>
+                                        </h2>
+                                        <h2 class="title">
+                                            Şəhər/Rayon
+                                            <p>Xirdalan seh</p>
+                                        </h2>
+                                        <h2 class="title">
+                                            Telefon
+                                            <p>+994515980998</p>
+                                        </h2>
+
+                                    </div>
+                                    <div class="address-inner-bottom">
+                                        <div>
+                                            <p>Qalubiyye bina27</p>
+
+                                        </div>
+                                        <div class="buttons">
+                                            <button>
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-payment">
+                        <div class="title">
+                            <div class="payment-title">
+                                <span>2</span>
+                                ÖDƏNİŞ NÖVÜNÜ SEÇİN
+                            </div>
+                            <p>(Çatdırılma: Pulsuz)</p>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Online ödəniş
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Nağd ödəniş
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync(nameof(Basket))
+
+            <div class="col-lg-1"></div>
+
+        </div>
+    </div>
+</div>
+<!-- Basket End -->

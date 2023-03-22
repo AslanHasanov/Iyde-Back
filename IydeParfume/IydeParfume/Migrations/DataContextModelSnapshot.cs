@@ -232,7 +232,7 @@ namespace IydeParfume.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductBrands");
+                    b.ToTable("ProductBrands", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.ProductCategory", b =>
@@ -278,7 +278,7 @@ namespace IydeParfume.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductGroups");
+                    b.ToTable("ProductGroups", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.ProductImage", b =>
@@ -336,7 +336,7 @@ namespace IydeParfume.Migrations
 
                     b.HasIndex("SeasonId");
 
-                    b.ToTable("ProductSeasons");
+                    b.ToTable("ProductSeasons", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.ProductSize", b =>
@@ -359,7 +359,7 @@ namespace IydeParfume.Migrations
 
                     b.HasIndex("SizeId");
 
-                    b.ToTable("ProductSizes");
+                    b.ToTable("ProductSizes", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.ProductUsageTime", b =>
@@ -382,7 +382,7 @@ namespace IydeParfume.Migrations
 
                     b.HasIndex("UsageTimeId");
 
-                    b.ToTable("ProductUsageTimes");
+                    b.ToTable("ProductUsageTimes", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Role", b =>
