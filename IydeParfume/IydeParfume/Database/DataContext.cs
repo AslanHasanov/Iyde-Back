@@ -35,6 +35,8 @@ namespace IydeParfume.Database
         public DbSet<UserActivation> UserActivations { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketProduct> BasketProducts { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogDisplay> BlogDisplays { get; set; }
 
 
 

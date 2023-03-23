@@ -5,5 +5,6 @@
         Sliders = 1,
         Products = 2,
         Categories = 4,
+        Blog = 8,
     }
 }

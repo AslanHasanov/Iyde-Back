@@ -4,6 +4,7 @@ using IydeParfume.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IydeParfume.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230323225533_Blogs")]
+    partial class Blogs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,42 +111,6 @@ namespace IydeParfume.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Blogs", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.BlogDisplay", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileNameInSystem")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsImage")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsVidio")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("BlogDisplays", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Brand", b =>
@@ -734,17 +701,6 @@ namespace IydeParfume.Migrations
                     b.Navigation("Size");
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.BlogDisplay", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.Blog", "Blog")
-                        .WithMany("BlogDisplays")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Category", b =>
                 {
                     b.HasOne("IydeParfume.Database.Models.Category", "Parent")
@@ -913,11 +869,6 @@ namespace IydeParfume.Migrations
             modelBuilder.Entity("IydeParfume.Database.Models.Basket", b =>
                 {
                     b.Navigation("BasketProducts");
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.Blog", b =>
-                {
-                    b.Navigation("BlogDisplays");
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Brand", b =>
