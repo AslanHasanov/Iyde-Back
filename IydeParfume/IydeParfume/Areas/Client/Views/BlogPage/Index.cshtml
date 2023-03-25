@@ -1,0 +1,28 @@
+﻿@model IydeParfume.Areas.Client.ViewModels.Blog.BlogViewModel
+
+
+
+<div class="news-detail">
+    <div class="container">
+        <div class="breadCrumb">
+            <a href="/">İydə Perfumery</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="/">Bloglar</a>
+            <div>@Model.Title</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                {
+                    <div class="news-detail-header">
+                        <h5>@Model.Title</h5>
+                        <p>@Model.CreatedAt</p>
+                        <img src="~/@Model.BlogDisplays">
+                    </div>
+                    <div class="news-detail-content">
+                        <span>@Model.Content</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+

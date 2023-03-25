@@ -1,6 +1,8 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using IydeParfume.Areas.Client.ViewComponents;
 @using IydeParfume.Areas.Client.ViewModels.Home
 @model IndexViewModel
+
 
 <!-- Slider -->
 <div class="Slider">
@@ -109,55 +111,8 @@
 </div>
 <!-- Collections End-->
 <!-- Blog -->
-<div class="blog">
-    <div class="container">
-        <div class="title">
-            BLOQ
-        </div>
-        <div class="Blogs">
-            <div class="col-lg-4 col-12">
-                <div class="blog-content">
-                    <a href="">
-                        <img src="~/Client/assets/images/4_coffee.jpg">
+@await Component.InvokeAsync(nameof(Blog)))
 
-                    </a>
-                </div>
-                <div class="blog-body">
-                    <p>Qəhvə qoxulu ətirlər</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="blog-content">
-
-                    <img src="~/Client/assets/images/4_coffee.jpg">
-                </div>
-                <div class="blog-body">
-                    <p>Qəhvə qoxulu ətirlər</p>
-                </div>
-            </div>  <div class="col-lg-4 col-12">
-                <div class="blog-content">
-
-                    <img src="~/Client/assets/images/4_coffee.jpg">
-                </div>
-                <div class="blog-body">
-                    <p>Qəhvə qoxulu ətirlər</p>
-                </div>
-            </div>  <div class="col-lg-4 col-12">
-                <div class="blog-content">
-
-                    <img src="~/Client/assets/images/4_coffee.jpg">
-                </div>
-                <div class="blog-body">
-                    <p>Qəhvə qoxulu ətirlər</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="more-blog d-flex justify-content-center">
-            <a href="">Bütün bloqlar</a>
-        </div>
-    </div>
-</div>
 <!-- Blog End-->
 <!-- About-->
 <div class="about">
