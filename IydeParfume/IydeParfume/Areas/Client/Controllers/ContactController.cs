@@ -22,11 +22,11 @@ namespace IydeParfume.Areas.Client.Controllers
         [HttpGet("index", Name = "client-contact-index")]
         public async Task<IActionResult> Index()
         {
-            return View(new ContactViewModel());
+            return View(new SupportOrderViewModel());
         }
 
         [HttpPost("index", Name = "client-contact-index")]
-        public async Task<IActionResult> Index(ContactViewModel model)
+        public async Task<IActionResult> Index(SupportOrderViewModel model)
         {
             if (!ModelState.IsValid)
             {

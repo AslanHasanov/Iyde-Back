@@ -38,6 +38,7 @@ namespace IydeParfume.Database
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogDisplay> BlogDisplays { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<SupportOrder> SupportOrders { get; set; }
 
 
 

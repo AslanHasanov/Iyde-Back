@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewCompanents\" />
+    <Folder Include="Areas\Client\ViewModels\SupportOrder\" />
   </ItemGroup>
 
 </Project>

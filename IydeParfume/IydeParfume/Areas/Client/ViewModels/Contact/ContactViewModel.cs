@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace IydeParfume.Areas.Client.ViewModels.Contact
 {
-    public class ContactViewModel
+    public class SupportOrderViewModel
     {
 
         [Required]
