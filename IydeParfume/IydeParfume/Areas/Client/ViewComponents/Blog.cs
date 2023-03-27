@@ -32,8 +32,8 @@ namespace IydeParfume.Areas.Client.ViewComponents
                 .Take(1).FirstOrDefault()!.FileNameInSystem, Contracts.File.UploadDirectory.Blog)
                 : String.Empty,
               
-                b.BlogDisplays!.FirstOrDefault()!.IsImage!= null! ? b.BlogDisplays!.FirstOrDefault()!.IsImage : default ,
-                b.BlogDisplays!.FirstOrDefault()!.IsVidio!= null! ? b.BlogDisplays!.FirstOrDefault()!.IsVidio : default,
+                //b.BlogDisplays!.FirstOrDefault()!.IsImage!= null! ? b.BlogDisplays!.FirstOrDefault()!.IsImage : default ,
+                //b.BlogDisplays!.FirstOrDefault()!.IsVidio!= null! ? b.BlogDisplays!.FirstOrDefault()!.IsVidio : default,
                 b.CreatedAt
               
                 )).ToListAsync();

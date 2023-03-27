@@ -43,7 +43,8 @@
                         @foreach (var blogFile in Model.Files!)
                         {
                             <tr>
-                                @if (blogFile.IsImage == true)
+                                <td><img src="~/@blogFile.FileUrl" width="20%" /></td>
+@*                                @if (blogFile.IsImage == true)
                                 {
 
                                     <td><img src="~/@blogFile.FileUrl" width="20%" /></td>
@@ -56,7 +57,7 @@
                                             <source src="~/@blogFile.FileUrl" type="video/mp4">
                                         </video>
                                     </td>
-                                }
+                                }*@
                                 <td>@blogFile.CreatedAt.ToString("dd/MM/yyyy")</td>
                                 <td class="text-end">
                                     <a asp-route="admin-blogDisplay-update" asp-route-id="@blogFile.Id"><i class="las la-pen text-secondary font-16"></i></a>

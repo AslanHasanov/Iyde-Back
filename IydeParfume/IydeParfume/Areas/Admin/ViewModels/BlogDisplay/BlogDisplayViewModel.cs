@@ -8,8 +8,8 @@
 
             public int Id { get; set; }
             public string FileUrl { get; set; }
-            public bool IsImage { get; set; }
-            public bool IsVideo { get; set; }
+            //public bool IsImage { get; set; }
+            //public bool IsVideo { get; set; }
             public DateTime CreatedAt { get; set; }
         }
 

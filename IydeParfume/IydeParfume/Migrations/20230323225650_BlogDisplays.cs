@@ -19,8 +19,8 @@ namespace IydeParfume.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FileNameInSystem = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsImage = table.Column<bool>(type: "bit", nullable: false),
-                    IsVidio = table.Column<bool>(type: "bit", nullable: false),
+                    IsImage = table.Column<bool>(type: "bit", nullable: true),
+                    IsVidio = table.Column<bool>(type: "bit", nullable: true),
                     BlogId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -40,6 +40,10 @@ namespace IydeParfume.Migrations
                 name: "IX_BlogDisplays_BlogId",
                 table: "BlogDisplays",
                 column: "BlogId");
+
+            migrationBuilder.DropColumn(
+           name: "IsVidio",
+           table: "BlogDisplays");
         }
 
         /// <inheritdoc />

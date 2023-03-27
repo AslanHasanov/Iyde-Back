@@ -40,8 +40,8 @@ namespace IydeParfume.Areas.Admin.Controllers
             {
                 Id = p.Id,
                 FileUrl = _fileService.GetFileUrl(p.FileNameInSystem, Contracts.File.UploadDirectory.Blog),
-                IsImage = p.IsImage,
-                IsVideo = p.IsVidio,
+                //IsImage = p.IsImage,
+                //IsVideo = p.IsVidio,
                 CreatedAt = p.CreatedAt
             }).ToList();
 
@@ -76,8 +76,8 @@ namespace IydeParfume.Areas.Admin.Controllers
                 Blog = product,
                 FileName = model.File.FileName,
                 FileNameInSystem = imageNameInSystem,
-                IsImage = model.IsImage,
-                IsVidio = model.IsVideo
+                //IsImage = model.IsImage,
+                //IsVidio = model.IsVideo
             };
 
             await _dataContext.BlogDisplays.AddAsync(productImage);

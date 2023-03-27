@@ -29,7 +29,7 @@ namespace IydeParfume.Areas.Client.Controllers
                 .ToListAsync(),
 
                 Categories = await _dataContext.Categories
-                .OrderByDescending(c => c.Id).Take(3).Select(c => new CategoryViewModel(c.Id, c.Title!,
+                .OrderByDescending(c => c.Id).Take(4).Select(c => new CategoryViewModel(c.Id, c.Title!,
                 _fileService.GetFileUrl(c.ImageInFileSystem, UploadDirectory.Categories))).ToListAsync(),
             };
 

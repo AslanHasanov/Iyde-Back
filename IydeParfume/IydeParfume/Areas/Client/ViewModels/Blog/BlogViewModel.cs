@@ -2,14 +2,14 @@
 {
     public class BlogViewModel
     {
-        public BlogViewModel(int id, string title, string content, string blogDisplays, bool isImage, bool isVideo, DateTime createdAt)
+        public BlogViewModel(int id, string title, string content, string blogDisplays/*, bool isImage, bool isVideo*/, DateTime createdAt)
         {
             Id = id;
             Title = title;
             Content = content;
             BlogDisplays = blogDisplays;
-            IsImage = isImage;
-            IsVideo = isVideo;
+            //IsImage = isImage;
+            //IsVideo = isVideo;
             CreatedAt = createdAt;
         }
         
