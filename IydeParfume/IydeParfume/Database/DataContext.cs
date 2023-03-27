@@ -41,6 +41,8 @@ namespace IydeParfume.Database
         public DbSet<SupportOrder> SupportOrders { get; set; }
         public DbSet<SupportDelivery> SupportDeliveries { get; set; }
         public DbSet<SupportPayment> SupportPayments { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<AboutUsImage> AboutUsImages { get; set; }
 
 
 

@@ -4,6 +4,7 @@ using IydeParfume.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IydeParfume.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230327120628_AboutUs")]
+    partial class AboutUs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,36 +50,6 @@ namespace IydeParfume.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AboutUs", (string)null);
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.AboutUsImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AboutUsId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileNameInSystem")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AboutUsId");
-
-                    b.ToTable("AboutUsImages", (string)null);
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Basket", b =>
@@ -869,17 +842,6 @@ namespace IydeParfume.Migrations
                     b.ToTable("UserActivations", (string)null);
                 });
 
-            modelBuilder.Entity("IydeParfume.Database.Models.AboutUsImage", b =>
-                {
-                    b.HasOne("IydeParfume.Database.Models.AboutUs", "AboutUs")
-                        .WithMany("AboutUsImages")
-                        .HasForeignKey("AboutUsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AboutUs");
-                });
-
             modelBuilder.Entity("IydeParfume.Database.Models.Basket", b =>
                 {
                     b.HasOne("IydeParfume.Database.Models.User", "User")
@@ -1090,11 +1052,6 @@ namespace IydeParfume.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("IydeParfume.Database.Models.AboutUs", b =>
-                {
-                    b.Navigation("AboutUsImages");
                 });
 
             modelBuilder.Entity("IydeParfume.Database.Models.Basket", b =>

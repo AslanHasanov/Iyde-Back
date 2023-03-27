@@ -1,9 +1,8 @@
-﻿namespace IydeParfume.Areas.Admin.ViewModels.BlogDisplay
+﻿namespace IydeParfume.Areas.Admin.ViewModels.AboutUsImage
 {
     public class AddViewModel
     {
-
         public IFormFile File { get; set; }
-     
+
     }
 }
