@@ -40,6 +40,7 @@ namespace IydeParfume.Database
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<SupportOrder> SupportOrders { get; set; }
         public DbSet<SupportDelivery> SupportDeliveries { get; set; }
+        public DbSet<SupportPayment> SupportPayments { get; set; }
 
 
 
