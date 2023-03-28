@@ -15,8 +15,8 @@
     <div class="right d-flex align-items-center py-5">
         <div class="auth-content">
             <div class="auth-content-header">
-                <a asp-route="client-auth-login" id="log" class="login">GİRİŞ</a>
-                <a asp-route="client-auth-register" id="reg" class="register">QEYDİYYAT</a>
+                <a asp-route="client-auth-login"  class="login">GİRİŞ</a>
+                <a asp-route="client-auth-register" class="register text-dark">QEYDİYYAT</a>
             </div>
 
           
@@ -25,6 +25,10 @@
                 <div class="mb-3">
                     <input  class="form-control" placeholder="Ad" asp-for="FirstName" type="text" >
                     <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" placeholder="Soyad" asp-for="LastName" type="text">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <input name="phone" class="form-control" placeholder="Telefon" asp-for="Phone" type="tel">

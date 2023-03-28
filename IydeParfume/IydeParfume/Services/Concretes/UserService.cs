@@ -112,18 +112,19 @@ namespace IydeParfume.Services.Concretes
             var user = new User
             {
                 FirstName = model.FirstName,
-                Phone=model.Phone,
+                LastName = model.LastName,
+                Phone =model.Phone,
                 Email = model.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
-                RoleId = 6,
+                RoleId = 2,
             };
             await _dataContext.Users.AddAsync(user);
 
 
             var basket = new Basket
             {
-                //User = user,
-                UserId = user.Id,
+                User = user
+               
             };
             await _dataContext.Baskets.AddAsync(basket);
 

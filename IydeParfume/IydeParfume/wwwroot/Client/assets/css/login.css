@@ -1,6 +1,6 @@
 .auth-login-register {
   width: 100%;
-  height: 40rem;
+  height: 47rem;
 }
 .auth-login-register .auth-content {
   width: 60%;
@@ -64,13 +64,12 @@
 }
 .auth-login-register .right .auth-content-header a {
   margin-right: 1.6rem;
-  color: #121212;
+  color: rgba(18, 18, 18, 0.3803921569);
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 3.8rem;
-  opacity: 0.35;
   text-transform: uppercase;
   cursor: pointer;
 }

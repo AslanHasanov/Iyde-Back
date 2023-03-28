@@ -1,7 +1,7 @@
 
 .auth-login-register{
     width: 100%;
-    height: 40rem;
+    height: 47rem;
     .auth-content{
         width: 60%;
         .auth-content-guest{
@@ -58,24 +58,20 @@
                 border-left: 0.1rem solid hsla(0,0%,7%,.35);
                 padding-left: 1.6rem;
             }
-            #log{
-                opacity: 1;
-            }
+           
             a{
                 margin-right: 1.6rem;
-                color: #121212;
+                color: #12121261;
                 font-size: 32px;
                 font-style: normal;
                 font-weight: 700;
                 letter-spacing: .05em;
                 line-height: 3.8rem;
-                opacity: .35;
+                
                 text-transform: uppercase;
                 cursor: pointer;
             }
-            a.active {
-                opacity: 1;
-            }
+           
         }
         .auth-content-body{
          input{

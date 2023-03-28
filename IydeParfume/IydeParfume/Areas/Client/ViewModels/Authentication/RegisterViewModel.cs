@@ -6,6 +6,8 @@ namespace IydeParfume.Areas.Client.ViewModels.Authentication
     {
         [Required]
         public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "Phone  required")]
         [DataType(DataType.PhoneNumber)]

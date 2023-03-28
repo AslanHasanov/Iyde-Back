@@ -36,7 +36,7 @@ namespace IydeParfume.Services.Concretes
         }
 
         private void Send(MimeMessage emailMessage)
-        {
+            {
             using (var client = new SmtpClient())
             {
                 try
