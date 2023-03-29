@@ -162,23 +162,80 @@
   }
 }
 
-.headerBottom{
-  
-  padding: 0 11rem;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.078);
-  .navbar{
+.headerBottom {
+    padding: 0 11rem;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.078);
 
-    .dropdown{
-      outline: none;
-      border: none;
-      a{
-        outline: none;
-        border: none;
-        font-size: 22px;
+    .navbar {
+        li {
+            list-style: none;
+            border-bottom: #292930;
+            z-index: 1;
+        }
 
-      }
+        a {
+            font-size: 22px;
+            text-decoration: none;
+            color: #292930;
+            font-weight: bold;
+            position: relative;
+
+            i {
+                opacity: .7;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: black;
+                bottom: -10px;
+                left: 0;
+                height: 2px;
+                width: 0%;
+                transition: .7s;
+            }
+
+            &:hover {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .menu-item {
+            position: relative !important;
+            cursor: pointer;
+
+
+            #drop-menu {
+                position: absolute !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                left: -50px;
+                width: 180px;
+                background-color: #FDFCFC;
+                visibility: hidden;
+                opacity: 0;
+                transition: .5s;
+                top: 0px;
+                padding: 10px;
+                border-radius: 2px;
+                z-index: 3;
+
+                li {
+                    margin-top: 8px;
+                    list-style: none;
+                }
+            }
+        }
     }
-  }
+
+    .menu-item:hover #drop-menu {
+        visibility: visible;
+        opacity: 1;
+        top: 50px;
+    }
 }
 
 .mobileHead{
