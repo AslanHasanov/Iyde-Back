@@ -7,5 +7,6 @@
         Categories = 4,
         Blog = 8,
         AboutUs = 16,
+        Certificates = 32,
     }
 }

@@ -27,24 +27,17 @@
             </div>
             <div class="col-lg-12 col-12">
                 <div class="about-card-section">
-                    <div class="about-card">
-                        <h6>GƏLƏCƏYƏ BAXIŞ</h6>
+                    @foreach(var item in Model)
+                    {
+                         <div class="about-card">
+                            <h6>@item.Title</h6>
                         <div class="card-content">
-                            <p>Gələcək üçün planlarımızdan sizinlə bölüşək, filialımızı artırmaqla millətimiz keyfiyyətli ətirin istifadəsi çoxalsın. Çünki hər ətirə xüsusi diqqət və qayğı göstərmək bizim borcumuzdur. Biz duyğuları şüşəyə doldurduq, Siz isə istifadə edin.</p>
+                                <p>@item.Content</p>
                         </div>
                     </div>
-                    <div class="about-card">
-                        <h6>MƏQSƏDİMİZ</h6>
-                        <div class="card-content">
-                            <p>Müştəri tələblərinə diqqətli yanaşma ilə fərq yaradacaq keyfiyyətli və sağlam məhsulu düzgün qaydada təqdim etmək</p>
-                        </div>
-                    </div>
-                    <div class="about-card">
-                        <h6>MİSSİYAMIZ</h6>
-                        <div class="card-content">
-                            <p>"İydə Parfüm Evi" -in məqsədi bahalı sayılan ətirlər hər kəs üçün əl çatan olsun. Büdcəyə və zövqə uyğun ətirlər hər bir şəxs əldə etsin.</p>
-                        </div>
-                    </div>
+                    }
+                   
+                    
                     <div class="about-card blackCard">
                         <h6>ŞİRKƏT RƏHBƏRİNİN MESAJI</h6>
                         <div class="card-content blckcrdP">

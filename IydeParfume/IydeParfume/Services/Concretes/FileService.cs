@@ -61,6 +61,8 @@ namespace IydeParfume.Services.Concretes
                     return $"{initialSegment}/blog/{fileName}";
                 case UploadDirectory.AboutUs:
                     return $"{initialSegment}/aboutUs/{fileName}";
+                case UploadDirectory.Certificates:
+                    return $"{initialSegment}/certificates/{fileName}";
                 default:
 
                     throw new Exception("Something went wrong");
@@ -88,6 +90,8 @@ namespace IydeParfume.Services.Concretes
                     return Path.Combine(startPath, "blog");
                 case UploadDirectory.AboutUs:
                     return Path.Combine(startPath, "aboutUs");
+                case UploadDirectory.Certificates:
+                    return Path.Combine(startPath, "certificates");
                 default:
                     throw new Exception("Something went wrong");
             }
