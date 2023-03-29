@@ -1,0 +1,94 @@
+﻿@using IydeParfume.Areas.Client.ViewModels.AboutUs;
+@model List<AboutUsViewModel>
+
+
+
+
+<!-- About-->
+<div class="aboutPage">
+    <div class="container">
+        <div class="breadCrumb">
+            <a href="/">İydə Perfumery</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <div>Haqqımızda</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="about-content">
+                    @foreach(var item in Model)
+                    {
+                    <h1>@item.Title</h1>
+                    <p>@item.Content</p>
+                        <img src="~/@item.AboutUsImages">
+
+                        
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12 col-12">
+                <div class="about-card-section">
+                    <div class="about-card">
+                        <h6>GƏLƏCƏYƏ BAXIŞ</h6>
+                        <div class="card-content">
+                            <p>Gələcək üçün planlarımızdan sizinlə bölüşək, filialımızı artırmaqla millətimiz keyfiyyətli ətirin istifadəsi çoxalsın. Çünki hər ətirə xüsusi diqqət və qayğı göstərmək bizim borcumuzdur. Biz duyğuları şüşəyə doldurduq, Siz isə istifadə edin.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <h6>MƏQSƏDİMİZ</h6>
+                        <div class="card-content">
+                            <p>Müştəri tələblərinə diqqətli yanaşma ilə fərq yaradacaq keyfiyyətli və sağlam məhsulu düzgün qaydada təqdim etmək</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <h6>MİSSİYAMIZ</h6>
+                        <div class="card-content">
+                            <p>"İydə Parfüm Evi" -in məqsədi bahalı sayılan ətirlər hər kəs üçün əl çatan olsun. Büdcəyə və zövqə uyğun ətirlər hər bir şəxs əldə etsin.</p>
+                        </div>
+                    </div>
+                    <div class="about-card blackCard">
+                        <h6>ŞİRKƏT RƏHBƏRİNİN MESAJI</h6>
+                        <div class="card-content blckcrdP">
+                            <p>Hisslərin köşəyə tərk edilib, ətirlərin maddiyyat qoxduğu bir zamanda gəldik. Artıq hər ətirə xüsusi diqqət və qayğı göstərmə məqamıdır... Biz duyğuları şüşəyə doldurduq. İydə ətir satmır, sizin öz ətirlərinizi təqdim edir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="certifications-section my-5">
+    <div class="container">
+        <h5 class="title">Sertİfİkatlar</h5>
+        <div class="certifications">
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+<!-- About End -->

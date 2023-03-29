@@ -6,6 +6,6 @@
         Products = 2,
         Categories = 4,
         Blog = 8,
-        AboutUs = 8,
+        AboutUs = 16,
     }
 }
