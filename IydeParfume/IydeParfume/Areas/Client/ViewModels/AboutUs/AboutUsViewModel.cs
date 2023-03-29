@@ -16,5 +16,8 @@
         public string Content { get; set; }
         public string AboutUsImages { get; set; }
         public DateTime CreatedAt { get; set; }
+
+
     }
+
 }

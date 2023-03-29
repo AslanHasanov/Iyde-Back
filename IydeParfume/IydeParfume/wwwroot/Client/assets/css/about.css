@@ -155,6 +155,9 @@
   margin: 0 1rem;
   padding: 3.2rem;
 }
+.certifications-section .certificate-card img{
+ width: 50%;
+}
 
 @media (max-width: 576px) {
   .breadCrumb {

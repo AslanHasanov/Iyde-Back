@@ -1,0 +1,27 @@
+﻿@using IydeParfume.Areas.Client.ViewModels.AboutUs
+@model List<CertificateViewModel>
+
+
+
+<div class="certifications-section my-5">
+    <div class="container">
+        <h5 class="title">Sertİfİkatlar</h5>
+        <div class="certifications">
+            @foreach (var item in Model)
+            {
+                <div class="certificate-card">
+                    <img src="~/@item.BackGroundImageUrl">
+                    <div class="content">@item.Title</div>
+                </div>
+
+            }
+            <div class="certificate-card">
+                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
+                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>

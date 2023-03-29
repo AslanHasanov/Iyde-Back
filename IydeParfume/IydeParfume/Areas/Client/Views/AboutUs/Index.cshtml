@@ -1,4 +1,5 @@
-﻿@using IydeParfume.Areas.Client.ViewModels.AboutUs;
+﻿@using IydeParfume.Areas.Client.ViewComponents;
+@using IydeParfume.Areas.Client.ViewModels.AboutUs;
 @model List<AboutUsViewModel>
 
 
@@ -50,38 +51,6 @@
     </div>
 </div>
 
-<div class="certifications-section my-5">
-    <div class="container">
-        <h5 class="title">Sertİfİkatlar</h5>
-        <div class="certifications">
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-            <div class="certificate-card">
-                <img src="https://api.iyde.az/uploads/2022/04/17/slider/8_uygunluq-sertifikatı-iyde.png" alt="Certifcate">
-                <div class="content">"İydə" Uyğunluq Sertifikatı</div>
-            </div>
-        </div>
+@await Component.InvokeAsync(nameof(Certificate))
 
-
-    </div>
-</div>
-</div>
 <!-- About End -->
