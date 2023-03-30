@@ -1,21 +1,26 @@
 ﻿using IydeParfume.Areas.Client.ViewModels.Home;
 
-namespace IydeParfume.Areas.Client.ViewModels.Product
+namespace IydeParfume.Areas.Client.ViewModels.Shop
 {
-    public class ProductViewModel
+    public class ShopViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
         public int Price { get; set; }
         public List<Images>? ImgUrl { get; set; }
         public int? SizeId { get; set; }
-        public int? PersonSize { get; set; }
+        public int? PrSize { get; set; }
         public List<SizeViewModeL>? Sizes { get; set; }
         public int Quantity { get; set; }
 
         public List<CategoryViewModel>? Categories { get; set; }
-        public List<TagViewModeL>? Tags { get; set; }
-        public List<ProductListItemViewModel> Products { get; set; }
+        public List<SeasonViewModel>? Seasons { get; set; }
+        public List<BrandViewModel>? Brands { get; set; }
+        public List<GroupViewModel>? Groups { get; set; }
+        public List<UsageTimeViewModel>? UsageTimes { get; set; }
+
+        public List<ShopListItemViewModel> Products { get; set; }
 
 
 
@@ -74,13 +79,58 @@ namespace IydeParfume.Areas.Client.ViewModels.Product
         }
 
 
-        public class TagViewModeL
+        public class SeasonViewModel
         {
-            public TagViewModeL()
+            public SeasonViewModel()
             {
 
             }
-            public TagViewModeL(string title, int id)
+            public SeasonViewModel(string title, int id)
+            {
+                Title = title;
+                Id = id;
+            }
+
+            public int Id { get; set; }
+            public string Title { get; set; }
+        }
+        public class BrandViewModel
+        {
+            public BrandViewModel()
+            {
+
+            }
+            public BrandViewModel(string title, int id)
+            {
+                Title = title;
+                Id = id;
+            }
+
+            public int Id { get; set; }
+            public string Title { get; set; }
+        }
+        public class GroupViewModel
+        {
+            public GroupViewModel()
+            {
+
+            }
+            public GroupViewModel(string title, int id)
+            {
+                Title = title;
+                Id = id;
+            }
+
+            public int Id { get; set; }
+            public string Title { get; set; }
+        }
+        public class UsageTimeViewModel
+        {
+            public UsageTimeViewModel()
+            {
+
+            }
+            public UsageTimeViewModel(string title, int id)
             {
                 Title = title;
                 Id = id;

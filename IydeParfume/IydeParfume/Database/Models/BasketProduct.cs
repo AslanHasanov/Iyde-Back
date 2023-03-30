@@ -4,6 +4,7 @@ namespace IydeParfume.Database.Models
 {
     public class BasketProduct :BaseEntity<int>, IAuditable
     {
+        public decimal? CurrentPrice { get; set; }
         public int BasketId { get; set; }
         public Basket? Basket { get; set; }
 
