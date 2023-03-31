@@ -1,0 +1,166 @@
+﻿@using IydeParfume.Areas.Client.ViewComponents
+@using IydeParfume.Areas.Client.ViewModels.Shop
+@model SingleProductViewModel
+
+<!-- Product-Detail -->
+<div class="productDetail">
+    <div class="container">
+        <div class="breadCrumb">
+            <a asp-route="client-home-index">İydə Perfumery</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a asp-route="client-shoppage-index">Ətirlər</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            @foreach (var item in Model.Brands)
+            {
+                <div>@item.Title @Model.Title</div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="productHeader">
+                    @foreach (var item in Model.Brands)
+                    {
+                        
+                    <div class="title">@item.Title @Model.Title</div>
+                    <div class="productRaiting">
+                        <span>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="two">(2)</span>
+                        <a href="/">
+                            <p>@item.Title </p>
+                        </a>
+                    </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <div class="product-cards">
+                    @foreach (var item in Model.ImgUrl)
+                    {
+                        <div class="card">
+                            <img alt="product img" src="~/@item.ImageUrl">
+
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="chose">Ətrin həcmini seçin:</h5>
+                <div class="product-size">
+                    <div class="size-card size-1">
+                        <img src="https://api.iyde.az/frontend/images/volumes/thumbs/15ml-site.png" alt="product img" class="imgPath">
+                        <span>15ml</span>
+                        <div class="price">
+                            35
+                            <i class="fa-solid fa-manat-sign"></i>
+                        </div>
+                    </div>
+                    <div class="size-card size-2">
+                        <img src="https://api.iyde.az/frontend/images/volumes/thumbs/30ml-site.png" alt="product img" class="imgPath">
+                        <span>30ml</span>
+                        <div class="price">
+                            59
+                            <i class="fa-solid fa-manat-sign"></i>
+                        </div>
+                    </div>
+                    <div class="size-card size-3">
+                        <img src="https://api.iyde.az/frontend/images/volumes/thumbs/50ml-site.png" alt="product img" class="imgPath">
+                        <span>50ml</span>
+                        <div class="price">
+                            97
+                            <i class="fa-solid fa-manat-sign"></i>
+                        </div>
+                    </div>
+                    <div class="size-card size-4">
+                        <img src="https://api.iyde.az/frontend/images/volumes/thumbs/100ml-site.png" alt="product img" class="imgPath">
+                        <span>100ml</span>
+                        <div class="price">
+                            170
+                            <i class="fa-solid fa-manat-sign"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-detail-buttons">
+                    <span class="quantity-picker">
+                        <button class="quantity-modifier modifier-left">–</button>
+                        <input class="quantity-display" type="text" value="1" style="width: 4rem;">
+                        <button class="quantity-modifier modifier-right">＋</button>
+                    </span>
+                    <button type="button" class="addToCard">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        Səbətə əlavə et
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-10 col-12">
+                <div class="product-detail-tabs mb-5">
+                    <ul>
+                        <li id="show-indigarors">GÖSTƏRİCİLƏR</li>
+                        <li id="info-detail">MƏLUMAT</li>
+                    </ul>
+                    <div class="product-detail-indicators ">
+                        <div class="IndicatorsChild ind1">
+                            <p>
+                                Yayımlanma tarixi:
+                                <span>2022</span>
+                            </p>
+                            <p>
+                                Brend:
+                                @foreach (var item in Model.Brands)
+                                {
+                                <a href="/products?brand=bvlgari">@item.Title</a>
+                                }
+                            </p>
+                            <p>
+                                Cins:
+                                @foreach (var item in Model.Categories)
+                                {
+                                <a href="/products?gender=female">@item.Title</a>
+                                }
+                            </p>                          
+                            <p>
+                                Fəsil:
+                                @foreach (var item in Model.Seasons)
+                                {
+                                <span>@item.Title</span>
+                                }
+                            </p>
+                        </div>
+                        <div class="IndicatorsChild ind2">
+                            <p>
+                                Qruplar:
+                                @foreach (var item in Model.Groups)
+                                {
+                                <a href="/products?group=oriental">@item.Title</a>
+                                }
+                                
+                            </p>
+                            <p>
+                                Gündüz/Gecə:
+                                @foreach (var item in Model.UsageTimes)
+                                {
+                                <span>@item.Title</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-detail-info d-none">
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+
+        </div>
+    </div>
+</div>
+<!-- Product-Detail End -->
