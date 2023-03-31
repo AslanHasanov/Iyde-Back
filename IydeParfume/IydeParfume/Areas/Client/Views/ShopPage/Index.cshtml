@@ -1,0 +1,388 @@
+﻿@using IydeParfume.Areas.Client.ViewComponents
+
+<!-- Products -->
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadCrumb">
+                    <a href="/">İydə Perfumery</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <div>Ətirlər</div>
+                </div>
+                <!-- Products Header -->
+                <div class="row products-header">
+                    <div class="col-lg-3 products-title">
+                        Ətirlər
+                        <span>(230 nəticə)</span>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="products-top-filter">
+                            <div class="products-top-filter-child">
+                                <span id="male">
+                                    male
+                                    <i class="fa-solid fa-xmark"></i>
+                                </span>
+                            </div>
+                            <div class="dropdown search-sort">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-arrow-down-a-z"></i>
+                                    A-dan Z-yə
+
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-arrow-down-z-a"></i>
+                                            Z-dən A-ya
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-regular fa-star"></i>
+                                            Populyarlığa Görə
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-arrow-down-1-9"></i>
+                                            Ucuzdan Bahaya
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-arrow-up-1-9"></i>
+                                            Bahadan Ucuza
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="buttons-filter">
+                                <button class="btn filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                                    <i class="fa-solid fa-filter"></i>
+                                    Filter-Button
+                                </button>
+
+                                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filters</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div class="products-filter pr-filter">
+                                            <div class="search-area brands">
+                                                <h2>Brendlər</h2>
+                                                <input class="form-control" id="myInput" type="text" placeholder="Brend axtar">
+                                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Accua Di Parma</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Adidas</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agent Provocateur</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="search-area category">
+                                                <h2>Kateqoriyalar</h2>
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Kişi Ətirləri <span>(230)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Qadın Ətirləri <span>(150)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Unisex Ətirlər <span>(50)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Uşaq Ətirləri <span>(50)</span></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="search-area price">
+                                                <h2>Qiymət</h2>
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">0-50 <i class="fa-solid fa-manat-sign"></i></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">50-100 <i class="fa-solid fa-manat-sign"></i></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">100-200 <i class="fa-solid fa-manat-sign"></i></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">200+ <i class="fa-solid fa-manat-sign"></i></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Bütün Nəticələr </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="search-area groups">
+                                                <h2>Qruplar</h2>
+                                                <input class="form-control" id="myInput" type="text" placeholder="Qrup axtar">
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Accua Di Parma <span>(100)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Adidas <span>(100)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agent Provocateur <span>(100)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist <span>(100)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist <span>(100)</span></a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Agonist</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="search-area season">
+                                                <h2>Ətrin Fəslini Seçin</h2>
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">payız/qış</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">yaz/yay</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="search-area time">
+                                                <h2>Ətrin Vurulma Vaxtı</h2>
+                                                <ul class="list-group" id="myList">
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Gündüz Ətri</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <a href="">Gecə Ətri</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products Header End -->
+            </div>
+
+            <!-- Filter -->
+            <div class="col-lg-3">
+                <div class="products-filter">
+                    <div class="search-area brands">
+                        <h2>Brendlər</h2>
+                        <input class="form-control" id="myInput" type="text" placeholder="Brend axtar">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Accua Di Parma</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Adidas</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agent Provocateur</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-area category">
+                        <h2>Kateqoriyalar</h2>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Kişi Ətirləri <span>(230)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Qadın Ətirləri <span>(150)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Unisex Ətirlər <span>(50)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Uşaq Ətirləri <span>(50)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-area price">
+                        <h2>Qiymət</h2>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">0-50 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">50-100 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">100-200 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">200+ <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Bütün Nəticələr </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-area groups">
+                        <h2>Qruplar</h2>
+                        <input class="form-control" id="myInput" type="text" placeholder="Qrup axtar">
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Accua Di Parma <span>(100)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Adidas <span>(100)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agent Provocateur <span>(100)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist <span>(100)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist <span>(100)</span></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Agonist</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-area season">
+                        <h2>Ətrin Fəslini Seçin</h2>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">payız/qış</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">yaz/yay</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-area time">
+                        <h2>Ətrin Vurulma Vaxtı</h2>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Gündüz Ətri</a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <a href="">Gecə Ətri</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Filter End -->
+            <!-- Products -->
+            <div class="col-lg-9">
+                <div class="cards d-flex">
+                    <div class="row">
+                        @await Component.InvokeAsync(nameof(ShopPageProduct), new { searchBy = ViewBag.SearchBy, search = ViewBag.Search })
+
+                      
+                       
+                    </div>
+
+                </div>
+            </div>
+            <!-- Products End -->
+
+        </div>
+    </div>
+</div>
+<!-- Products End -->
