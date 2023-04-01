@@ -127,49 +127,14 @@
         opacity: .8;
     }
     .product-size{
-        display: flex;
-        flex-wrap: wrap;
-        height: auto;
-        .size-card{
-            border: 0.1rem solid #e9e9e9;
-            border-radius: 15px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            height: 11rem;
-            width: 15rem;
-            justify-content: center; 
-            margin: 4px; 
-            cursor: pointer;
-
-            img{
-                margin-bottom: 18px;
-                max-height: 52px;
-                object-fit: contain;
-            }  
-            span{
-                color: #121212;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 500;
-                letter-spacing: .1em;
-                line-height: 1.6rem;
-                margin-bottom: 0.8rem;
-                text-align: center;
-            }  
-            .price{
-                align-items: flex-end;
-                color: #121212;
-                display: flex;
-                font-size: 28px;
-                font-style: normal;
-                font-weight: 500;
-                letter-spacing: .02em;
-                line-height: 3.3rem; 
-                justify-content: center;  
-                i{
-                    font-size: 18px;
-                }       
+      padding-right: 7rem;
+        .form-select{
+          
+            &:focus{
+                border-color: #ff087768 !important;
+                outline: 0;
+                box-shadow: 0 0 0 0.25rem #ff08775c !important;
+               
             }
         }      
     }
@@ -247,7 +212,7 @@
         }
     }
     .product-detail-tabs{
-        margin-top: 6.4rem;
+        margin-top: 2rem;
         width: 100%;
         #show-indigarors{
             color: #000;
@@ -257,7 +222,7 @@
             border: none;
             display: flex;
             justify-content: space-between;
-            padding-bottom: 4rem;
+            padding-bottom: 1rem;
             width: 100%;   
             li{
                 list-style: none;
@@ -276,13 +241,12 @@
             }      
         }
         .product-detail-indicators{
-            align-items: center;
             display: flex;
-            justify-content: flex-start;
-            padding: 0 2.4rem;
+            justify-content: space-evenly;
+            
 
             .IndicatorsChild{
-                margin-right: 9.2rem;
+                
                 p{
                     align-items: center;
                     color: #000;

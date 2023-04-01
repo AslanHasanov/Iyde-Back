@@ -79,3 +79,4 @@ rightSize4.onclick=()=>{
     rightSize3.style.border="1px solid #e9e9e9"
     rightSize1.style.border="1px solid #e9e9e9"
 }
+
