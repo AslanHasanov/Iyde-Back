@@ -44,6 +44,7 @@ namespace IydeParfume.Database
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<AboutUsImage> AboutUsImages { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
 
 

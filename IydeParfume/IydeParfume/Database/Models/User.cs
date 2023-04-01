@@ -16,6 +16,8 @@ namespace IydeParfume.Database.Models
         public int? RoleId { get; set; }
         public Role? Roles { get; set; }
         public UserActivation? UserActivation { get; set; }
+        public List<Address> AddressList { get; set; }
+
 
 
     }
