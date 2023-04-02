@@ -75,7 +75,9 @@
         </div>
         <div class="order-complete">
             <a href="/">Alışverişə qayıt</a>
-            <a class="greenButton resp-none">Sİfarİşİ tamamla</a>
+            <form method="POST" asp-route="client-order-confirmation" id="submit-form"></form>
+            <button class="greenButton resp-none" form="submit-form" type="submit">Sİfarİşİ tamamla</button>
+            @*<a method="POST" asp-route="client-order-confirmation" class="greenButton resp-none">Sİfarİşİ tamamla</a>*@
         </div>
     </div>
 </div>
