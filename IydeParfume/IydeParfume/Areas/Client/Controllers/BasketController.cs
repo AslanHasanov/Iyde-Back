@@ -90,6 +90,22 @@ namespace IydeParfume.Areas.Client.Controllers
 
             return ViewComponent(nameof(Basket), productCookieViewModel);
         }
+        [HttpPost("add/{id}", Name = "client-individual-basket-add")]
+        public async Task<IActionResult> AddProductAsync([FromRoute] int id, ShopViewModel model)
+        {
+            var product = await _dataContext.Products
+                .Include(p => p.ProductSizes).Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+            if (product is null)
+            {
+                return NotFound();
+            }
+            var productCookiViewModel = await _basketService.AddBasketProductAsync(product, model);
+            if (productCookiViewModel.Any())
+            {
+                return ViewComponent(nameof(Basket), productCookiViewModel);
+            }
+            return ViewComponent(nameof(Basket), product);
+        }
 
         [HttpGet("basket-individual-delete/{productId}/{sizeId}", Name = "client-individual-basket-delete")]
         public async Task<IActionResult> DeleteIndividualProduct([FromRoute] int productId, [FromRoute] int sizeId)

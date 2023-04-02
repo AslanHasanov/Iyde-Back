@@ -52,7 +52,7 @@ public class AddressController : Controller
 
         var user = await _dataContext.Users.FirstOrDefaultAsync(u=> u.Id == _userService.CurrentUser.Id && u.Id ==id  );
 
-        //burda useri necese vermeliyik.fikirlesel
+     
 
         var address = new Address
         {

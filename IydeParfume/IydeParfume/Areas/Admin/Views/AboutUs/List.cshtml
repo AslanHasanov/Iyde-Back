@@ -35,10 +35,12 @@
                                 <td>@blog.CreatedAt.ToString("dd/MM/yyyy")</td>
                                 <td class="text-end">
 
-                                    <form method="POST" asp-route="admin-aboutUs-delete" asp-route-id="@blog.Id" id="blog-form-@blog.Id"></form>
-                                    <button type="submit" form="nav-form-@blog.Id">
+                                    <form method="POST" asp-route="admin-aboutUs-delete" asp-route-id="@blog.Id" id="about-form-@blog.Id"></form>
+                                    <button class="border-0" type="submit" form="about-form-@blog.Id">
                                         <i class="las la-trash-alt text-secondary font-16"></i>
                                     </button>
+
+                                   
                                     <a class="btn btn-primary" asp-route="admin-aboutUsImage-list" asp-route-aboutUsId="@blog.Id">About Us Image List</a>
                                 </td>
                             </tr>

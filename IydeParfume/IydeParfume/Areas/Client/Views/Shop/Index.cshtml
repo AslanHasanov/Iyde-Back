@@ -1,5 +1,4 @@
-﻿@using IydeParfume.Areas.Client.ViewComponents
-@using IydeParfume.Areas.Client.ViewModels.Shop
+﻿@using IydeParfume.Areas.Client.ViewModels.Shop
 @model SingleProductViewModel
 
 <!-- Product-Detail -->
@@ -46,31 +45,28 @@
                     {
                         <div class="card">
                             <img alt="product img" src="~/@item.ImageUrl">
-
+                            
                         </div>
                     }
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="product-size">
-@*                    <select class="form-select size-cart" aria-label="Default select example">
-                        <option selected>Ətrin həcmini seçin:</option>
-                        @foreach (var item in Model.Sizes)
-                        {
-                          <option >@item.Title</option>
-                        }
+                <div class="size-price d-flex justify-content-center align-items-center mt-3">
+                    <span style="width: 10rem;font-size: 26px;font-weight: 600">Ölçü ml :</span>
+                
+                    <select class="form-select size-cart" style="width:67%" aria-label="Default select example ml" asp-for="SizeId" asp-items="@(new SelectList(Model.Sizes, nameof(SingleProductViewModel.SizeViewModeL.Id), nameof(SingleProductViewModel.SizeViewModeL.Title)))">
                     </select>
-*@
-                    <select class="form-select size-cart" aria-label="Default select example" asp-for="SizeId" asp-items="@(new SelectList(Model.Sizes, nameof(SingleProductViewModel.SizeViewModeL.Id), nameof(SingleProductViewModel.SizeViewModeL.Title)))">
-                    </select>
+                
+               
+
                 </div>
-                <div class="product-detail-buttons">
+                <div class="product-detail-buttons justify-content-center">
                     <span class="quantity-picker">
-                        <button class="quantity-modifier modifier-left">–</button>
+                        <a asp-route="client-individual-basket-delete" asp-route-productId="@Model.Id" asp-route-sizeId="@Model.SizeId" class="minus-btn quantity-modifier modifier-left">–</a>
                         <input class="quantity-display" type="text" value="1" style="width: 4rem;">
-                        <button class="quantity-modifier modifier-right">＋</button>
+                        <a asp-route="client-individual-basket-add" asp-route-id="@Model.Id" class="quantity-modifier modifier-right plus-btn">＋</a>
                     </span>
-                    <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="addToCard add-product-to-basket-single-btn">
+                    <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="addToCard add-product-to-basket-single-btn ">
                         <i class="fa-solid fa-basket-shopping"></i>
                         Səbətə əlavə et
                     </a>
@@ -122,11 +118,16 @@
                                 @foreach (var item in Model.UsageTimes)
                                 {
                                     <span>@item.Title</span>
-                                }
+                                }   
+                            </p>
+                            <p class="text-dark " style="font-weight:600">
+                                Qiyməti:@Model.Price  <i class="fa-solid fa-manat-sign"></i>
+
                             </p>
                         </div>
                     </div>
                     <div class="product-detail-info d-none">
+                        
                         <p>@Model.Description</p>
                     </div>
                 </div>

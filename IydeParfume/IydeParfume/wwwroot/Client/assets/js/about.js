@@ -1,9 +1,9 @@
 $('.certifications').slick({
     dots: false,
     infinite: false,
-    speed: 300,
+    speed: 700,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     responsive: [
    
       {

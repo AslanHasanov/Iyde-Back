@@ -4,6 +4,7 @@ namespace IydeParfume.Areas.Client.ViewModels.Address
 {
     public class AddViewModel
     {
+        
         [Required]
         public string AddressName { get; set; }
         [Required]

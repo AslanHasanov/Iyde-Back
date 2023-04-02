@@ -35,8 +35,12 @@
                                 <td>@blog.CreatedAt.ToString("dd/MM/yyyy")</td>
                                 <td class="text-end">
 
+
+
+
+
                                     <form method="POST" asp-route="admin-blog-delete" asp-route-id="@blog.Id" id="blog-form-@blog.Id"></form>
-                                    <button type="submit" form="nav-form-@blog.Id">
+                                    <button type="submit" form="blog-form-@blog.Id">
                                         <i class="las la-trash-alt text-secondary font-16"></i>
                                     </button>
                                     <a class="btn btn-primary" asp-route="admin-blogDisplay-list" asp-route-blogId="@blog.Id">Blog Image List</a>

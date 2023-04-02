@@ -217,6 +217,7 @@
   margin-top: 3px;
   border-radius: 15px;
   border: 1px solid transparent;
+  position: relative;
 }
 .products .container .cards .card .image-card {
   align-items: center;
@@ -228,13 +229,12 @@
   height: 23.6rem;
   justify-content: center;
   overflow: hidden;
-  position: relative;
 }
 .products .container .cards .card .image-card img {
   width: 40%;
   transition: 0.5s;
 }
-.products .container .cards .card .image-card .add-to-card {
+.products .container .cards .card .image-card .add-to-cart {
   align-items: center;
   background: #fff;
   border: none;
@@ -254,10 +254,39 @@
   transition: 0.4s;
   width: 94%;
 }
-.products .container .cards .card .image-card .add-to-card i {
+.products .container .cards .card .image-card .add-to-cart i {
   margin-right: 0.7rem;
 }
-.products .container .cards .card .image-card .add-to-card:hover {
+.products .container .cards .card .image-card .add-to-cart:hover {
+  background-color: #dde7dd;
+}
+.products .container .cards .card .add-to-basket {
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  height: 2.5rem;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  line-height: 1.6rem;
+  position: absolute;
+  text-transform: uppercase;
+  transition: 0.8s;
+  width: 89%;
+  bottom: 8rem;
+  visibility: hidden;
+  color: #000;
+  margin-left: 1rem;
+}
+.products .container .cards .card .add-to-basket i {
+  margin-right: 0.7rem;
+}
+.products .container .cards .card .add-to-basket:hover {
   background-color: #dde7dd;
 }
 .products .container .cards .card .card-body {
@@ -292,8 +321,9 @@
 .products .container .cards .card .card-body .raiting i {
   color: #FF0852;
 }
-.products .container .cards .card:hover .add-to-card {
-  bottom: 0.6rem;
+.products .container .cards .card:hover .add-to-basket {
+  transform: scale(1.1);
+  visibility: visible;
 }
 .products .container .cards .card:hover .image-card img {
   transform: scale(1.1);

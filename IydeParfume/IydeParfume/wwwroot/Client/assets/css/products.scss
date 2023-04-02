@@ -224,6 +224,7 @@
                 margin-top: 3px;
                 border-radius: 15px;
                 border: 1px solid transparent;
+                position: relative;     
                 .image-card{
                     align-items: center;
                     background: #fff;
@@ -233,12 +234,12 @@
                     height: 23.6rem;
                     justify-content: center;
                     overflow: hidden;
-                    position: relative;     
                     img{
                         width: 40%;
                         transition: .5s;
                     }
-                    .add-to-card{
+                   
+                    .add-to-cart{
                         align-items: center;
                         background: #fff;
                         border: none;
@@ -264,6 +265,36 @@
                             background-color: #dde7dd;
                         }      
                     }
+                    
+                }
+                .add-to-basket{
+                    align-items: center;
+                    background: #fff;
+                    border: none;
+                    border-radius: 3rem;
+                    cursor: pointer;
+                    display: flex;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    height: 2.5rem;
+                    justify-content: center;
+                    letter-spacing: 0.05em;
+                    line-height: 1.6rem;
+                    position: absolute;
+                    text-transform: uppercase;
+                    transition: 0.8s;
+                    width: 89%;
+                    bottom: 8rem;
+                    visibility: hidden;
+                    color: #000;
+                    margin-left: 1rem;
+                    i{
+                        margin-right: .7rem;
+                    }
+                    &:hover{
+                        background-color: #dde7dd;
+                    }  
                 }
                 .card-body{
                     background-color: #FAFAFA;
@@ -301,8 +332,9 @@
                         }
                     }
                 }
-                &:hover .add-to-card {
-                    bottom: .6rem;
+                &:hover .add-to-basket {
+                    transform: scale(1.1);
+                   visibility: visible;
                 }
                 &:hover .image-card img {
                     transform: scale(1.1);

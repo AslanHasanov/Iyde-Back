@@ -1,5 +1,6 @@
 ﻿@using IydeParfume.Areas.Client.ViewComponents
-
+@using IydeParfume.Areas.Client.ViewModels.Address;
+@model AddViewModel
 <!-- Basket -->
 <div class="Basket-section">
     <div class="container">
@@ -24,7 +25,42 @@
                                     <h4>Ünvan əlavə edin</h4>
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
-                              
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form method="post" asp-route="client-addaddress-add" class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Unvan</label>
+                                                    <input asp-for="AddressName" class="form-control" id="exampleFormControlInput1">
+                                                    <span class="text-danger" asp-validation-for="AddressName"></span>
+
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Tam ünvan</label>
+                                                    <input asp-for="FullAddress" type="address" class="form-control" id="exampleFormControlInput1">
+                                                    <span class="text-danger" asp-validation-for="FullAddress"></span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Şəhər/Rayon</label>
+                                                    <input asp-for="City" type="address" class="form-control" id="exampleFormControlInput1">
+                                                    <span class="text-danger" asp-validation-for="City"></span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Telefon</label>
+                                                    <input asp-for="Phone" type="telephone" class="form-control" id="exampleFormControlInput1">
+                                                    <span class="text-danger" asp-validation-for="Phone"></span>
+                                                </div>
+                                            </form>
+                                            <div class="modal-footer">
+                                                <a asp-route="client-addaddress-add"   class="btn blackButton">ÜNVAN YARAT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <label for="" class="address-card">
@@ -60,24 +96,10 @@
                     </div>
                     <div class="account-payment">
                         <div class="title">
-                            <div class="payment-title">
-                                <span>2</span>
-                                ÖDƏNİŞ NÖVÜNÜ SEÇİN
-                            </div>
+                           
                             <p>(Çatdırılma: Pulsuz)</p>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Online ödəniş
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Nağd ödəniş
-                            </label>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
