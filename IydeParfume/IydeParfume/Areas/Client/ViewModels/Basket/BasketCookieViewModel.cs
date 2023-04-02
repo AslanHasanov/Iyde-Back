@@ -34,7 +34,7 @@ namespace IydeParfume.Areas.Client.ViewModels.Basket
         }
         public BasketCookieViewModel(int id, string? title, string? imageUrl, int quantity, int? sizeId,
             List<SizeListItemViewModel> sizes,
-            int? prSize)
+            int? prSize, decimal price, decimal total)
         {
             Id = id;
             Title = title;
@@ -43,6 +43,8 @@ namespace IydeParfume.Areas.Client.ViewModels.Basket
             SizeId = sizeId;
             Sizes = sizes;
             PrSize = prSize;
+            Price = price;
+            Total = total;
         }
 
     }

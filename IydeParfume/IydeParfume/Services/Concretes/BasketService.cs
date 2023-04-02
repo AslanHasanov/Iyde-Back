@@ -34,6 +34,7 @@ namespace IydeParfume.Services.Concretes
             {
                 SizeId = model.SizeId != null ? model.SizeId : _dataContext.Sizes.FirstOrDefault()!.Id,
                 Quantity = model.Quantity != 0 ? model.Quantity : 1,
+                Price = product.Price
             };
 
             var allSize = await _dataContext.Sizes.FirstOrDefaultAsync(s => s.Id == model.SizeId);
@@ -108,7 +109,10 @@ namespace IydeParfume.Services.Concretes
                                              .Select(ps => new SizeListItemViewModel(ps.SizeId, ps.Size!.PrSize)).ToList(),
                                          model.SizeId != null
                                          ? _dataContext.Sizes.FirstOrDefault(s => s.Id == model.SizeId)!.PrSize
-                                         : _dataContext.Sizes.FirstOrDefault()!.PrSize));
+                                         : _dataContext.Sizes.FirstOrDefault()!.PrSize,
+                                         (decimal)sizePrice != null ? (decimal)sizePrice : product.Price,
+                        cookieViewModel.Total = cookieViewModel.Quantity * cookieViewModel.Price
+                                         ));
 
                 }
                 else

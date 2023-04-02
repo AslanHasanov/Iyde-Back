@@ -1,11 +1,13 @@
 ﻿using IydeParfume.Areas.Client.ViewComponents;
 using IydeParfume.Areas.Client.ViewModels.Basket;
+using IydeParfume.Areas.Client.ViewModels.ShopPage;
 using IydeParfume.Areas.Client.ViewModels.Shop;
 using IydeParfume.Database;
 using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using IydeParfume.Database.Models;
 
 namespace IydeParfume.Areas.Client.Controllers
 {
@@ -33,22 +35,26 @@ namespace IydeParfume.Areas.Client.Controllers
         }
 
 
-        [HttpPost("add/{id}", Name = "client-basket-add")]
+        [HttpGet("add/{id}", Name = "client-basket-add")] 
         public async Task<IActionResult> AddProduct([FromRoute] int id, ShopViewModel model)
-        {
+         {
             var product = await _dataContext.Products
                 .Include(p => p.ProductSizes).Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
 
             if (product is null) return NotFound();
            
-            var productCookiViewModel = await _basketService.AddBasketProductAsync(product, model);
+            var productCookiViewModel = await _basketService.AddBasketProductAsync(product, model); 
 
             if (productCookiViewModel.Any())
             {
-                return ViewComponent(nameof(Basket), productCookiViewModel);
-            }
+                //return ViewComponent(nameof(Basket), productCookiViewModel);
+                return RedirectToRoute("client-basket-index");
 
-            return ViewComponent(nameof(Basket), product);
+
+            }
+            return RedirectToRoute("client-basket-index");
+
+            //return ViewComponent(nameof(Basket), product);
         }
 
         [HttpGet("basket-delete/{productId}/{sizeId}", Name = "client-basket-delete")]
@@ -88,24 +94,11 @@ namespace IydeParfume.Areas.Client.Controllers
 
             await _dataContext.SaveChangesAsync();
 
-            return ViewComponent(nameof(Basket), productCookieViewModel);
+            //return ViewComponent(nameof(Basket), productCookieViewModel);
+            return RedirectToRoute("client-basket-index");
+
         }
-        [HttpPost("add/{id}", Name = "client-individual-basket-add")]
-        public async Task<IActionResult> AddProductAsync([FromRoute] int id, ShopViewModel model)
-        {
-            var product = await _dataContext.Products
-                .Include(p => p.ProductSizes).Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
-            if (product is null)
-            {
-                return NotFound();
-            }
-            var productCookiViewModel = await _basketService.AddBasketProductAsync(product, model);
-            if (productCookiViewModel.Any())
-            {
-                return ViewComponent(nameof(Basket), productCookiViewModel);
-            }
-            return ViewComponent(nameof(Basket), product);
-        }
+       
 
         [HttpGet("basket-individual-delete/{productId}/{sizeId}", Name = "client-individual-basket-delete")]
         public async Task<IActionResult> DeleteIndividualProduct([FromRoute] int productId, [FromRoute] int sizeId)
@@ -165,7 +158,70 @@ namespace IydeParfume.Areas.Client.Controllers
             }
             await _dataContext.SaveChangesAsync();
 
-            return ViewComponent(nameof(Basket), productCookieViewModel);
+            //return ViewComponent(nameof(Basket), productCookieViewModel);
+            return RedirectToRoute("client-basket-index");
+
         }
+
+        //[HttpPost("placeorder", Name = "client-order-placeorder")]
+        //public async Task<IActionResult> PlaceOrder()
+        //{
+        //    var basketProducts = await _dataContext.BasketProducts.Include(p => p.Product)
+        //        .Where(p => p.Basket!.UserId == _userService.CurrentUser.Id).ToListAsync();
+
+        //    var order = await CreateOrder();
+
+        //    await CreateFullOrderProductAync(order, basketProducts);
+        //    order.SumTotalPrice = order.OrderProducts.Sum(p => p.Total);
+
+        //    await ResetBasketAsync(basketProducts);
+
+        //    await _dataContext.SaveChangesAsync();
+
+
+        //    return RedirectToRoute("client-account-order");
+
+
+        //    async Task ResetBasketAsync(List<BasketProduct> basketProducts)
+        //    {
+        //        await Task.Run(() => _dataContext.RemoveRange(basketProducts));
+        //    }
+
+        //    async Task CreateFullOrderProductAync(Order order, List<BasketProduct> basketProducts)
+        //    {
+        //        foreach (var item in basketProducts)
+        //        {
+        //            var orderProduct = new OrderProduct
+        //            {
+        //                OrderId = order.Id,
+        //                ProductId = item.ProductId,
+        //                Price = item.Product.Price,
+        //                Quantity = item.Quantity,
+        //                Total = item.Product.Price * item.Quantity,
+        //                SizeId = item.SizeId
+
+        //            };
+        //            await _dataContext.OrderProducts.AddAsync(orderProduct);
+        //        }
+
+        //    }
+
+        //    async Task<Order> CreateOrder()
+        //    {
+        //        var order = new Order
+        //        {
+        //            Id = await _orderService.GenerateUniqueTrackingCodeAsync(),
+        //            UserId = _userService.CurrentUser.Id,
+        //            Status = Database.Models.Enums.OrderStatus.Created
+        //        };
+        //        await _dbContext.Orders.AddAsync(order);
+
+
+
+        //        return order;
+
+
+        //    }
+        //}
     }
 }

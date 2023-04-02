@@ -63,8 +63,11 @@
                 <div class="product-detail-buttons justify-content-center">
                     <span class="quantity-picker">
                         <a asp-route="client-individual-basket-delete" asp-route-productId="@Model.Id" asp-route-sizeId="@Model.SizeId" class="minus-btn quantity-modifier modifier-left">–</a>
-                        <input class="quantity-display" type="text" value="1" style="width: 4rem;">
-                        <a asp-route="client-individual-basket-add" asp-route-id="@Model.Id" class="quantity-modifier modifier-right plus-btn">＋</a>
+                        <input class="quantity-display" type="text" value="@Model.Quantity" style="width: 4rem;">
+                        <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="quantity-modifier modifier-right plus-btn">＋</a>
+                        <input type="hidden" value="@Model.SizeId"/>
+
+
                     </span>
                     <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="addToCard add-product-to-basket-single-btn ">
                         <i class="fa-solid fa-basket-shopping"></i>

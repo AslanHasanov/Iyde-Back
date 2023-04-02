@@ -7,7 +7,7 @@ namespace IydeParfume.Areas.Client.ViewModels.Shop
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public List<Images>? ImgUrl { get; set; }
         public int? SizeId { get; set; }
         public int? PrSize { get; set; }
@@ -25,7 +25,9 @@ namespace IydeParfume.Areas.Client.ViewModels.Shop
 
 
 
-
+        public ShopViewModel()
+        {
+        }
 
 
 

@@ -43,7 +43,8 @@ namespace IydeParfume.Areas.Client.ViewComponents
                        .Select(ps => new SizeListItemViewModel(ps.SizeId, ps.Size!.PrSize)).ToList(),
                         p.SizeId != null
                         ? _dataContext.Sizes.FirstOrDefault(s => s.Id == p.SizeId)!.PrSize
-                        : _dataContext.Sizes.FirstOrDefault()!.PrSize)).ToListAsync();
+                        : _dataContext.Sizes.FirstOrDefault()!.PrSize,
+                        (decimal)p.CurrentPrice,(decimal)p.CurrentPrice*(decimal)p.Quantity)).ToListAsync();
 
                 return View(model);
             }

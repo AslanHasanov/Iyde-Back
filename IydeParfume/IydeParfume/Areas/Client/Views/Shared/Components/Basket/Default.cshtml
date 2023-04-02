@@ -1,7 +1,7 @@
 ﻿@using IydeParfume.Areas.Client.ViewModels.Basket;
 @model List<BasketCookieViewModel>
 
-<div class="col-lg-5">
+<div class="col-lg-10">
     <div class="right-card">
         @foreach (var item in Model)
         {
@@ -25,7 +25,7 @@
                                 <span class="quantity-picker">
                                         <a asp-route="client-individual-basket-delete" asp-route-productId="@item.Id" asp-route-sizeId="@item.SizeId" class="quantity-modifier modifier-left">–</a>
                                     <input class="quantity-display" type="text" value="@item.Quantity" style="width: 1.6rem;">
-                                        <a asp-route="client-individual-basket-add" asp-route-id="@item.Id" class="quantity-modifier modifier-right">＋</a>
+                                        <a asp-route="client-basket-add" asp-route-id="@item.Id" class="quantity-modifier modifier-right">＋</a>
                                         <input type="hidden" value="@item.SizeId" />
                                 </span>
                             </div>
