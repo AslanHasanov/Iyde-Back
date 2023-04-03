@@ -1,4 +1,5 @@
-﻿using IydeParfume.Database;
+﻿using IydeParfume.Areas.Client.ViewComponents;
+using IydeParfume.Database;
 using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,26 +37,22 @@ namespace IydeParfume.Areas.Client.Controllers
 
         #region Filter'
 
-        //[HttpGet("Filter", Name = "client-shoppage-filter")]
-        //public async Task<IActionResult> Filter(string? searchBy = null,
-        //  string? search = null, int? MinPrice = null,
-        //  int? MaxPrice = null, [FromQuery] int? categoryId = null,
-        //  [FromQuery] int? sizeId = null, [FromQuery] int? seasonId = null,
-        //  [FromQuery] int? brandId = null, [FromQuery] int? groupId = null)
-        //{
+        [HttpGet("filter", Name = "client-shoppage-filter")]
+        public async Task<IActionResult> Sort(string? searchBy, string? search, 
+            [FromQuery] int? sort = null,
+            [FromQuery] int? categoryId = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            [FromQuery] int? seasonId = null,
+            [FromQuery] int? brandId = null,
+            [FromQuery] int? groupId = null,
+            [FromQuery] int? usageTimeId = null)
+        {
 
-        //    return ViewComponent(nameof(ShopProduct), new
-        //    {
-        //        searchBy = searchBy,
-        //        search = search,
-        //        MinPrice = MinPrice,
-        //        MaxPrice = MaxPrice,
-        //        categoryId = categoryId,
-        //        colorId = colorId,
-        //        tagId = tagId
-        //    });
-
-        //}
+            return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, sort = sort,
+                categoryId = categoryId, minPrice = minPrice, maxPrice = maxPrice, tagId = seasonId,brandId=brandId,
+            groupId=groupId,usageTimeId=usageTimeId});
+        }
 
         #endregion
     }

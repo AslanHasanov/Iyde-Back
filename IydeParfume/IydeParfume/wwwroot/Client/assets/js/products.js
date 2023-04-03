@@ -5,4 +5,131 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
-  });
+});
+
+$(document).on("click", '.select-catagory', function (e) {
+    e.preventDefault();
+    let aHref = e.target.href;
+    let category = e.target.previousElementSibling
+    let CategoryId = category.value;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+
+            data: {
+                CategoryId: CategoryId
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+            },
+            error: function (err) {
+                $(".modalProduct").html(err.responseText);
+            }
+
+        });
+})
+$(document).on("click", '.select-season', function (e) {
+    e.preventDefault();
+    let aHref = e.target.href;
+    let season = e.target.previousElementSibling
+    console.log(category)
+    let SeasonId = season.value;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+
+            data: {
+                SeasonId: SeasonId
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+            },
+            error: function (err) {
+                $(".modalProduct").html(err.responseText);
+            }
+
+        });
+})
+$(document).on("click", '.select-brand', function (e) {
+    e.preventDefault();
+    let aHref = e.target.href;
+    let brand = e.target.previousElementSibling
+    let BrandId = brand.value;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+
+            data: {
+                BrandId: BrandId
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+            },
+            error: function (err) {
+                $(".modalProduct").html(err.responseText);
+            }
+
+        });
+})
+$(document).on("click", '.select-group', function (e) {
+    e.preventDefault();
+    let aHref = e.target.href;
+    let group = e.target.previousElementSibling
+    let GroupId = group.value;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+
+            data: {
+                GroupId: GroupId
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+            },
+            error: function (err) {
+                $(".modalProduct").html(err.responseText);
+            }
+
+        });
+})
+$(document).on("click", '.select-usagetime', function (e) {
+    e.preventDefault();
+    let aHref = e.target.href;
+    let usagetime = e.target.previousElementSibling
+    let UsageTimeId = usagetime.value;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+
+            data: {
+                UsageTimeId: UsageTimeId
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+            },
+            error: function (err) {
+                $(".modalProduct").html(err.responseText);
+            }
+
+        });
+})

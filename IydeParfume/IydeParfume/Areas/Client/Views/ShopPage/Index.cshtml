@@ -14,15 +14,12 @@
                 <div class="row products-header">
                     <div class="col-lg-3 products-title">
                         Ətirlər
-                        <span>(230 nəticə)</span>
+                        @*<span>( nəticə)</span>*@
                     </div>
                     <div class="col-lg-9">
                         <div class="products-top-filter">
                             <div class="products-top-filter-child">
-                                <span id="male">
-                                    male
-                                    <i class="fa-solid fa-xmark"></i>
-                                </span>
+                                
                             </div>
                             <div class="dropdown search-sort">
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,53 +68,20 @@
                                     <div class="offcanvas-body">
                                         <div class="products-filter pr-filter">
                                             <div class="search-area brands">
+
                                                 <h2>Brendlər</h2>
-                                                <input class="form-control" id="myInput" type="text" placeholder="Brend axtar">
-                                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                               
                                                 <ul class="list-group" id="myList">
                                                     <li class="list-group-item">
                                                         <a href="">Accua Di Parma</a>
                                                     </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Adidas</a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Agent Provocateur</a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Agonist</a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Agonist</a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Agonist</a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="">Agonist</a>
-                                                    </li>
+                                                    
                                                 </ul>
                                             </div>
                                             <div class="search-area category">
-                                                <h2>Kateqoriyalar</h2>
-                                                <ul class="list-group" id="myList">
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <a href="">Kişi Ətirləri <span>(230)</span></a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <a href="">Qadın Ətirləri <span>(150)</span></a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <a href="">Unisex Ətirlər <span>(50)</span></a>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <a href="">Uşaq Ətirləri <span>(50)</span></a>
-                                                    </li>
-                                                </ul>
+                                                @await Component.InvokeAsync(nameof(ShopPageCategory))
+
+                                                
                                             </div>
                                             <div class="search-area price">
                                                 <h2>Qiymət</h2>
@@ -219,144 +183,55 @@
                 <div class="products-filter">
                     <div class="search-area brands">
                         <h2>Brendlər</h2>
-                        <input class="form-control" id="myInput" type="text" placeholder="Brend axtar">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Accua Di Parma</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Adidas</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agent Provocateur</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                        </ul>
+                        @using (Html.BeginForm("Filter", "ShopPage", FormMethod.Get))
+                        {
+                            
+
+                            @Html.TextBox("search", null, new { @class="form-control", @placeholder="Brend axtar"} )
+                            <button class="search-btn-product" type="submit" aria-label="searchbtn"><i class="pe-7s-search"></i></button>
+                        }
+                            @await Component.InvokeAsync(nameof(ShopPageBrand))
+
+                         
                     </div>
                     <div class="search-area category">
                         <h2>Kateqoriyalar</h2>
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Kişi Ətirləri <span>(230)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Qadın Ətirləri <span>(150)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Unisex Ətirlər <span>(50)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Uşaq Ətirləri <span>(50)</span></a>
-                            </li>
-                        </ul>
+                        @await Component.InvokeAsync(nameof(ShopPageCategory))
+
+                       
                     </div>
                     <div class="search-area price">
                         <h2>Qiymət</h2>
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">0-50 <i class="fa-solid fa-manat-sign"></i></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">50-100 <i class="fa-solid fa-manat-sign"></i></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">100-200 <i class="fa-solid fa-manat-sign"></i></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">200+ <i class="fa-solid fa-manat-sign"></i></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Bütün Nəticələr </a>
-                            </li>
-                        </ul>
+                            <div class="mtext-102 cl2 p-b-15">
+                                Qiymət
+                            </div>
+                            <div class="range-slider">
+                                <div class="range-value d-flex justify-content-between align-items-center">
+                                    <span class="rangeValues1"></span>
+                                    <span class="rangeValues2"></span>
+                                </div>
+                                <input class="searchproductPrice" value="1" min="1" max="500" step="1" type="range">
+                                <input class="searchproductPrice2" value="500" min="1" max="500" step="1" type="range">
+
+                                <a class="shoppage-url" asp-route="client-shoppage-filter">
+                                </a>
+                            </div>
                     </div>
                     <div class="search-area groups">
                         <h2>Qruplar</h2>
-                        <input class="form-control" id="myInput" type="text" placeholder="Qrup axtar">
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Accua Di Parma <span>(100)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Adidas <span>(100)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agent Provocateur <span>(100)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist <span>(100)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist <span>(100)</span></a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Agonist</a>
-                            </li>
-                        </ul>
+                        @await Component.InvokeAsync(nameof(ShopPageGroup))
+
                     </div>
                     <div class="search-area season">
                         <h2>Ətrin Fəslini Seçin</h2>
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">payız/qış</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">yaz/yay</a>
-                            </li>
-                        </ul>
+                        @await Component.InvokeAsync(nameof(ShopPageSeason))
+
+                      
                     </div>
                     <div class="search-area time">
                         <h2>Ətrin Vurulma Vaxtı</h2>
-                        <ul class="list-group" id="myList">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Gündüz Ətri</a>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <a href="">Gecə Ətri</a>
-                            </li>
-                        </ul>
+                        @await Component.InvokeAsync(nameof(ShopPageUsageTime))
+
                     </div>
                 </div>
             </div>
@@ -364,7 +239,7 @@
             <!-- Products -->
             <div class="col-lg-9">
                 <div class="cards d-flex fustify-content-evenly">
-                    <div class="row">
+                    <div class="row filtered-area">
                         @await Component.InvokeAsync(nameof(ShopPageProduct), new { searchBy = ViewBag.SearchBy, search = ViewBag.Search })
 
                       

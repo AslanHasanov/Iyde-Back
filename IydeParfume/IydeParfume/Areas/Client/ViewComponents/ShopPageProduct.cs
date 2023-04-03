@@ -4,11 +4,7 @@ using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using IydeParfume.Areas.Client.ViewModels.ShopPage;
-using static IydeParfume.Areas.Client.ViewModels.ShopPage.ListItemViewModel;
-using System.Linq;
-using IydeParfume.Areas.Client.ViewModels.Shop;
-using IydeParfume.Database.Models;
-using IydeParfume.Services.Concretes;
+
 
 namespace IydeParfume.Areas.Client.ViewComponents
 {
@@ -51,7 +47,6 @@ namespace IydeParfume.Areas.Client.ViewComponents
                     .Include(p => p.ProductGroups)
                     .Include(p => p.ProductUsageTimes)
                     .Where(p => categoryId == null || p.ProductCategories!.Any(pc => pc.CategoryId == categoryId))
-                    .Where(p => sizeId == null || p.ProductSizes!.Any(pc => pc.SizeId == sizeId))
                     .Where(p => seasonId == null || p.ProductSeasons!.Any(pt => pt.SeasonId == seasonId))
                     .Where(p => brandId == null || p.ProductBrands!.Any(pt => pt.BrandId == brandId))
                     .Where(p => groupId == null || p.ProductGroups!.Any(pt => pt.GroupId == groupId))
