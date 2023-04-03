@@ -1,4 +1,4 @@
-﻿using IydeParfume.Areas.Client.ViewModels.Home;
+﻿
 
 namespace IydeParfume.Areas.Client.ViewModels.Shop
 {
@@ -14,7 +14,7 @@ namespace IydeParfume.Areas.Client.ViewModels.Shop
         public List<SizeViewModeL>? Sizes { get; set; }
         public int Quantity { get; set; }
 
-        public List<CategoryViewModel>? Categories { get; set; }
+        public List<CategoryViewModeL>? Categories { get; set; }
         public List<SeasonViewModel>? Seasons { get; set; }
         public List<BrandViewModel>? Brands { get; set; }
         public List<GroupViewModel>? Groups { get; set; }
@@ -25,12 +25,24 @@ namespace IydeParfume.Areas.Client.ViewModels.Shop
 
 
 
+        public ShopViewModel(int ıd, string title, string description, decimal price, List<Images>? ımgUrl, List<SizeViewModeL>? sizes, int quantity, List<CategoryViewModeL>? categories, List<SeasonViewModel>? seasons, List<BrandViewModel>? brands, List<GroupViewModel>? groups, List<UsageTimeViewModel>? usageTimes)
+        {
+            Id = ıd;
+            Title = title;
+            Description = description;
+            Price = price;
+            ImgUrl = ımgUrl;
+            Sizes = sizes;
+            Quantity = quantity;
+            Categories = categories;
+            Seasons = seasons;
+            Brands = brands;
+            Groups = groups;
+            UsageTimes = usageTimes;
+        }
         public ShopViewModel()
         {
         }
-
-
-
 
         public class Images
         {

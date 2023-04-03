@@ -46,7 +46,7 @@ namespace IydeParfume.Areas.Client.Controllers
             [FromQuery] int? seasonId = null,
             [FromQuery] int? brandId = null,
             [FromQuery] int? groupId = null,
-            [FromQuery] int? usageTimeId = null)
+            [FromQuery] int? usageTimeId = null) //baxaq o size olan yer
         {
 
             return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, sort = sort,

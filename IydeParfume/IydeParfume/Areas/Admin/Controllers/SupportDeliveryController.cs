@@ -1,7 +1,9 @@
 ﻿using IydeParfume.Areas.Admin.ViewModels.SupportDelivery;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
+using IydeParfume.Migrations;
 using IydeParfume.Services.Abstracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +12,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 
     [Area("admin")]
     [Route("SupportDelivery")]
+    [Authorize(Roles = "admin")]
+
     public class SupportDeliveryController : Controller
     {
         private readonly DataContext _dataContext;

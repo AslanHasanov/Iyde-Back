@@ -5,46 +5,55 @@
     <div class="right-card">
         @foreach (var item in Model)
         {
-        <div class="card-parent">
-            <div class="card">
-                <div class="card-image">
+            <div class="card-parent">
+                <div class="card">
+                    <div class="card-image">
                         <img src="~/@item.ImageUrl" alt="order img">
-                </div>
-                <div class="order-detail">
-                    <h6>@item.Title</h6>
-                    <div class="card-raiting">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <div class="order-detail-button">
-                        <div class="left">
-                            <div class="quantity">
-                                <span class="quantity-picker">
-                                        <a asp-route="client-individual-basket-delete" asp-route-productId="@item.Id" asp-route-sizeId="@item.SizeId" class="quantity-modifier modifier-left">–</a>
-                                    <input class="quantity-display" type="text" value="@item.Quantity" style="width: 1.6rem;">
+                    <div class="order-detail">
+                        <h6>@item.Title</h6>
+                        <div class="card-raiting">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="order-detail-button">
+                            <div class="left">
+                                <div class="quantity">
+                                    <span class="quantity-picker">
+                                        <a asp-route="client-individual-basket-delete" asp-route-productId="@item.Id" asp-route-sizeId="@item.SizeId" class="minus-btn quantity-modifier modifier-left">–</a>
+                                        <input class="quantity-display" type="text" value="@item.Quantity" style="width: 1.6rem;">
                                         <a asp-route="client-basket-add" asp-route-id="@item.Id" class="quantity-modifier modifier-right">＋</a>
                                         <input type="hidden" value="@item.SizeId" />
-                                </span>
+                                    </span>
+                                </div>
+                                @foreach (var item1 in item.Sizes)
+                                {
+                                    @if (item.SizeId == item1.Id)
+                                    {
+                                        <span class="resp-none">@item1.PrSize ml</span>
+                                        //bele?ence yes
+                                    }
+
+
+                                }
                             </div>
-                            <span class="resp-none">@item.PrSize ml</span>
-                        </div>
-                        <div class="right">
-                            <p>
-                                @item.Price
-                                <i class="fa-solid fa-manat-sign"></i>
-                            </p>
+                            <div class="right">
+                                <p>
+                                    @item.Price
+                                    <i class="fa-solid fa-manat-sign"></i>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
                     <a asp-route="client-basket-delete" asp-route-productId="@item.Id" asp-route-sizeId="@item.SizeId" class="deleteCart">
-                    <i class="fa-solid fa-xmark"></i>
-                    Sil
-                </a>
+                        <i class="fa-solid fa-xmark"></i>
+                        Sil
+                    </a>
+                </div>
             </div>
-        </div>
 
         }
         <div class="card-total">

@@ -1,5 +1,5 @@
 ﻿@using IydeParfume.Areas.Client.ViewModels.Shop
-@model SingleProductViewModel
+@model ShopViewModel
 
 <!-- Product-Detail -->
 <div class="productDetail">
@@ -54,7 +54,7 @@
                 <div class="size-price d-flex justify-content-center align-items-center mt-3">
                     <span style="width: 10rem;font-size: 26px;font-weight: 600">Ölçü ml :</span>
                 
-                    <select class="form-select size-cart" style="width:67%" aria-label="Default select example ml" asp-for="SizeId" asp-items="@(new SelectList(Model.Sizes, nameof(SingleProductViewModel.SizeViewModeL.Id), nameof(SingleProductViewModel.SizeViewModeL.Title)))">
+                    <select class="form-select size-cart" style="width:67%"  asp-for="SizeId"  asp-items="@(new SelectList(Model.Sizes, nameof(ShopViewModel.SizeViewModeL.Id), nameof(ShopViewModel.SizeViewModeL.Title)))">
                     </select>
                 
                
@@ -69,10 +69,18 @@
 
 
                     </span>
+
                     <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="addToCard add-product-to-basket-single-btn ">
                         <i class="fa-solid fa-basket-shopping"></i>
                         Səbətə əlavə et
                     </a>
+
+@*                    <form method="POST" asp-route="client-basket-add" asp-route-id="@Model.Id" id="book-form-@Model.Id"></form>
+                    <button class="addToCard add-product-to-basket-single-btn " style="background-color:none; border:none;" type="submit" form="book-form-@Model.Id">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        Səbətə əlavə et
+                    </button>*@
+
                 </div>
                 <div class="product-detail-tabs mb-5">
                     <ul>

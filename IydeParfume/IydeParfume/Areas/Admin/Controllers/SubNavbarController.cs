@@ -1,6 +1,8 @@
 ﻿using IydeParfume.Areas.Admin.ViewModels.SubNavbar;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
+using IydeParfume.Migrations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AddViewModel = IydeParfume.Areas.Admin.ViewModels.SubNavbar.AddViewModel;
@@ -9,6 +11,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/subnavbar")]
+    [Authorize(Roles = "admin")]
+
     public class SubNavbarController : Controller
     {
         private readonly DataContext _dataContext;

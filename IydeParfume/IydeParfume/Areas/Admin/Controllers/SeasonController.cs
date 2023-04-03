@@ -2,6 +2,8 @@
 using IydeParfume.Areas.Admin.ViewModels.Season;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
+using IydeParfume.Migrations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/season")]
+    [Authorize(Roles = "admin")]
+
     public class SeasonController : Controller
     {
         private readonly DataContext _dataContext;

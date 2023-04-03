@@ -9,6 +9,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/contact")]
+    [Authorize(Roles = "admin")]
+
     public class ContactController : Controller
     {
         private readonly DataContext _dataContext;

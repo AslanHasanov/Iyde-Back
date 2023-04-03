@@ -5,10 +5,14 @@ using IydeParfume.Areas.Admin.ViewModels.AboutUs;
 using Microsoft.EntityFrameworkCore;
 using IydeParfume.Database.Models;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/aboutUs")]
+    [Authorize(Roles = "admin")]
+
     public class AboutUsController : Controller
     {
         private readonly DataContext _dataContext;

@@ -24,34 +24,34 @@ namespace IydeParfume.Areas.Client.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var product = await _dataContext.Products.Include(p => p.ProductImages)
-                .Include(p => p.ProductSizes).FirstOrDefaultAsync(p => p.Id == id);
+                .Include(p => p.ProductSizes).Include(p=>p.ProductCategories).FirstOrDefaultAsync(p => p.Id == id);
 
             //var basket = await _dataContext.BasketProducts.FirstOrDefaultAsync(p => p.ProductId == id);
 
             if (product is null) return NotFound();
       
 
-            var model = new SingleProductViewModel(product.Id, product.Name!, product.Description!, product.Price, 
+            var model = new ShopViewModel(product.Id, product.Name!, product.Description!, product.Price, 
                product.ProductImages!
-                .Select(p => new SingleProductViewModel.Images(p.Id, _fileService.GetFileUrl(p.ImageNameFileSystem, UploadDirectory.Products))).ToList(),
+                .Select(p => new ShopViewModel.Images(p.Id, _fileService.GetFileUrl(p.ImageNameFileSystem, UploadDirectory.Products))).ToList(),
 
                 _dataContext.ProductSizes.Include(ps => ps.Size).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.SizeViewModeL(ps.Size!.PrSize, ps.Size.Id)).ToList(),
+                .Select(ps => new ShopViewModel.SizeViewModeL(ps.Size.PrSize, ps.Size.Id)).ToList(),
                  1,
                  _dataContext.ProductCategories.Include(ps => ps.Category).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.CategoryViewModeL( ps.Category!.Title!, ps.Category.Id)).ToList(),
+                .Select(ps => new ShopViewModel.CategoryViewModeL(ps.Category.Title, ps.Category.Id)).ToList(),
 
                   _dataContext.ProductSeasons.Include(ps => ps.Season).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.SeasonViewModel(ps.Season!.Title, ps.Season.Id)).ToList(),
+                .Select(ps => new ShopViewModel.SeasonViewModel(ps.Season!.Title, ps.Season.Id)).ToList(),
 
                         _dataContext.ProductBrands.Include(ps => ps.Brand).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.BrandViewModel(ps.Brand!.Name, ps.Brand.Id)).ToList(),
+                .Select(ps => new ShopViewModel.BrandViewModel(ps.Brand!.Name, ps.Brand.Id)).ToList(),
 
                               _dataContext.ProductGroups.Include(ps => ps.Group).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.GroupViewModel(ps.Group!.Title, ps.Group.Id)).ToList(),
+                .Select(ps => new ShopViewModel.GroupViewModel(ps.Group!.Title, ps.Group.Id)).ToList(),
 
                                     _dataContext.ProductUsageTimes.Include(ps => ps.UsageTime).Where(ps => ps.ProductId == product.Id)
-                .Select(ps => new SingleProductViewModel.UsageTimeViewModel(ps.UsageTime!.Title, ps.UsageTime.Id)).ToList()
+                .Select(ps => new ShopViewModel.UsageTimeViewModel(ps.UsageTime!.Title, ps.UsageTime.Id)).ToList()
                 );
 
             foreach (var item in model.Categories!)

@@ -1,7 +1,9 @@
 ﻿using IydeParfume.Areas.Admin.ViewModels.Product;
 using IydeParfume.Contracts.File;
 using IydeParfume.Database;
+using IydeParfume.Migrations;
 using IydeParfume.Services.Abstracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/product")]
+    [Authorize(Roles = "admin")]
+
     public class ProductController : Controller
     {
         private readonly DataContext _dataContext;

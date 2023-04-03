@@ -34,7 +34,6 @@ namespace IydeParfume.Services.Concretes
             {
                 SizeId = model.SizeId != null ? model.SizeId : _dataContext.Sizes.FirstOrDefault()!.Id,
                 Quantity = model.Quantity != 0 ? model.Quantity : 1,
-                Price = product.Price
             };
 
             var allSize = await _dataContext.Sizes.FirstOrDefaultAsync(s => s.Id == model.SizeId);
@@ -59,9 +58,11 @@ namespace IydeParfume.Services.Concretes
                 var basketProduct = await _dataContext.BasketProducts
                        .Include(b => b.Basket)
                        .FirstOrDefaultAsync(bp => 
-                       bp.Basket!.User.Id == _userService.CurrentUser.Id &&
+                       bp.Basket!.UserId == _userService.CurrentUser.Id && //bu lazim deyil axi((
                        bp.ProductId == product.Id &&
                        bp.SizeId == model.SizeId);
+
+               
 
                 if (basketProduct is null || basketProduct.SizeId != model.SizeId)
                 {
@@ -96,22 +97,24 @@ namespace IydeParfume.Services.Concretes
                 var cookieViewModel = productCookieViewModel!.FirstOrDefault(pc =>
                 pc.Id == product.Id && pc.SizeId == model.SizeId);
 
+                
+
                 if (cookieViewModel is null || cookieViewModel.SizeId != model.SizeId)
                 {
 
                     productCookieViewModel!.Add
                           (new BasketCookieViewModel(product.Id, product.Name, product.ProductImages!.Take(1).FirstOrDefault() != null
                               ? _fileService.GetFileUrl(product.ProductImages!.Take(1).FirstOrDefault()!.ImageNameFileSystem, Contracts.File.UploadDirectory.Products)
-                                  : String.Empty,
+                                  : string.Empty,
                                        model.Quantity,
                                        model.SizeId,
                                       _dataContext.ProductSizes.Include(ps => ps.Size).Where(ps => ps.ProductId == product.Id)
-                                             .Select(ps => new SizeListItemViewModel(ps.SizeId, ps.Size!.PrSize)).ToList(),
+                                             .Select(ps => new SizeListItemViewModel(ps.Size.Id, ps.Size!.PrSize)).ToList(),
                                          model.SizeId != null
                                          ? _dataContext.Sizes.FirstOrDefault(s => s.Id == model.SizeId)!.PrSize
                                          : _dataContext.Sizes.FirstOrDefault()!.PrSize,
-                                         (decimal)sizePrice != null ? (decimal)sizePrice : product.Price,
-                        cookieViewModel.Total = cookieViewModel.Quantity * cookieViewModel.Price
+                                         sizePrice != null ? sizePrice : product.Price,
+                                          (decimal)model.Quantity * sizePrice 
                                          ));
 
                 }

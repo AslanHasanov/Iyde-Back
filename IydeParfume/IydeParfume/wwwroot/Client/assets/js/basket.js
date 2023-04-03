@@ -1,4 +1,4 @@
-//$(document).on("click", ".add-product-to-basket-single-btn", function (e) {
+﻿//$(document).on("click", ".add-product-to-basket-single-btn", function (e) {
 //    e.preventDefault();
 
 
@@ -141,49 +141,120 @@
 //})
 
 
-//$(document).on("click", ".minus-btn", function (e) {
-//    e.preventDefault();
+$(document).on("click", ".minus-btn", function (e) {
+    e.preventDefault();
 
-//    var aHref = e.target.href;
+    var aHref = e.target.href;
 
-//    let size = e.target.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
-//    let SizeId = size.value;
+    let size = e.target.parentElement.children[3];
+    let SizeId = size.value;
+    console.log(SizeId)
 
-//    let updateHref = e.target.nextElementSibling.nextElementSibling.nextElementSibling.href;
-//    $.ajax(
-//        {
-//            type: "GET",
-//            url: aHref,
-//            data: {
-//                SizeId: SizeId,
-//            },
-//            success: function (response) {
+    let updateHref = e.target.nextElementSibling.nextElementSibling.nextElementSibling.href;
+    //$.ajax(
+    //    {
+    //        type: "GET",
+    //        url: aHref,
+    //        data: {
+    //            SizeId: SizeId,
+    //        },
+    //        success: function (response) {
 
-//                $('.basket-block').html(response);
+    //            $('.basket-block').html(response);
 
-//                $.ajax(
-//                    {
-//                        type: "GET",
-//                        url: updateHref,
-//                        success: function (response) {
+    //            $.ajax(
+    //                {
+    //                    type: "GET",
+    //                    url: updateHref,
+    //                    success: function (response) {
 
-//                            $('.cart-block').html(response);
+    //                        $('.cart-block').html(response);
 
 
-//                        },
-//                        error: function (err) {
-//                            $(".product-details-modal").html(err.responseText);
+    //                    },
+    //                    error: function (err) {
+    //                        $(".product-details-modal").html(err.responseText);
 
-//                        }
+    //                    }
 
-//                    });
+    //                });
 
-//            },
-//            error: function (err) {
-//                $(".product-details-modal").html(err.responseText);
+    //        },
+    //        error: function (err) {
+    //            $(".product-details-modal").html(err.responseText);
 
-//            }
+    //        }
 
-//        });
+    //    });
 
-//})
+})
+
+
+$(document).on("click", ".add-product-to-basket-single-btn", function (e) {
+    e.preventDefault();
+
+
+    let aHref = e.target.href;
+    let size = e.target.parentElement.parentElement.firstElementChild.children[1];
+    let SizeId = size.value;
+    console.log(SizeId);
+
+
+
+    let quantity = e.target.previousElementSibling.children[1];
+    let Quantity = quantity.value;
+    console.log(Quantity)
+
+    $.ajax(
+        {
+            type: "POST",
+            url: aHref,
+            data: {
+                SizeId: SizeId,
+                Quantity: Quantity
+            },
+            success: function (response) {
+
+                alert("Məhsul Əlavə Edildi");
+
+
+            },
+            error: function (err) {
+                $(".product-details-modal").html(err.responseText);
+
+            }
+
+        });
+})
+
+$(document).on("click", ".plus-btn", function (e) {
+    e.preventDefault();
+
+    fetch(e.target.href)
+        .then(response => response.text())
+        .then(data => {
+            $('.cartPageJs').html(data);
+
+            fetch(e.target.nextElementSibling.href)
+                .then(response => response.text())
+                .then(data => {
+                    $('.quantity-display').html(data);
+                })
+        })
+})
+
+$(document).on("click", ".minus-btn", function (e) {
+    e.preventDefault();
+
+    fetch(e.target.href)
+        .then(response => response.text())
+        .then(data => {
+            $('.cartPageJs').html(data);
+
+            fetch(e.target.nextElementSibling.href)
+                .then(response => response.text())
+                .then(data => {
+                    $('.quantity-display').html(data);
+                })
+        })
+})

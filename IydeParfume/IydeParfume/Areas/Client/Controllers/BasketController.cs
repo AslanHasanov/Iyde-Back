@@ -1,13 +1,10 @@
-﻿using IydeParfume.Areas.Client.ViewComponents;
-using IydeParfume.Areas.Client.ViewModels.Basket;
-using IydeParfume.Areas.Client.ViewModels.ShopPage;
+﻿using IydeParfume.Areas.Client.ViewModels.Basket;
 using IydeParfume.Areas.Client.ViewModels.Shop;
 using IydeParfume.Database;
 using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
-using IydeParfume.Database.Models;
 
 namespace IydeParfume.Areas.Client.Controllers
 {
@@ -35,7 +32,7 @@ namespace IydeParfume.Areas.Client.Controllers
         }
 
 
-        [HttpGet("add/{id}", Name = "client-basket-add")] 
+        [HttpPost("add/{id}", Name = "client-basket-add")] 
         public async Task<IActionResult> AddProduct([FromRoute] int id, ShopViewModel model)
          {
             var product = await _dataContext.Products

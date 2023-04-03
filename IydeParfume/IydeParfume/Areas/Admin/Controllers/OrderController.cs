@@ -13,6 +13,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/orders")]
+    [Authorize(Roles = "admin")]
+
     public class OrderController : Controller
     {
         private readonly DataContext _dataContext;

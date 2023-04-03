@@ -39,8 +39,9 @@ namespace IydeParfume.Areas.Client.ViewComponents
                     : String.Empty,
                         p.Quantity,
                         p.SizeId,
+
                         _dataContext.ProductSizes.Include(ps => ps.Size).Where(ps => ps.ProductId == p.Product.Id)
-                       .Select(ps => new SizeListItemViewModel(ps.SizeId, ps.Size!.PrSize)).ToList(),
+                       .Select(ps => new SizeListItemViewModel(ps.Size.Id, ps.Size.PrSize)).ToList(),
                         p.SizeId != null
                         ? _dataContext.Sizes.FirstOrDefault(s => s.Id == p.SizeId)!.PrSize
                         : _dataContext.Sizes.FirstOrDefault()!.PrSize,

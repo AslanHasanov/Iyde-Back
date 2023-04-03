@@ -1,6 +1,8 @@
 ﻿using IydeParfume.Areas.Admin.ViewModels.Size;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
+using IydeParfume.Migrations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/size")]
+    [Authorize(Roles = "admin")]
+
     public class SizeController : Controller
     {
         private readonly DataContext _dataContext;

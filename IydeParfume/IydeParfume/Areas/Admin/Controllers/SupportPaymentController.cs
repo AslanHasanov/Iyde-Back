@@ -4,12 +4,14 @@ using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using IydeParfume.Areas.Admin.ViewModels.SupportPayment;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("SupportPayment")]
+    [Authorize(Roles = "admin")]
+
     public class SupportPaymentController : Controller
     {
         private readonly DataContext _dataContext;

@@ -11,6 +11,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/blogDisplay")]
+    [Authorize(Roles = "admin")]
+
     public class BlogDisplayController : Controller
     {
         private readonly DataContext _dataContext;

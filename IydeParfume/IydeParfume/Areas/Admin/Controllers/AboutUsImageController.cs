@@ -2,7 +2,9 @@
 using IydeParfume.Contracts.File;
 using IydeParfume.Database;
 using IydeParfume.Database.Models;
+using IydeParfume.Migrations;
 using IydeParfume.Services.Abstracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +12,8 @@ namespace IydeParfume.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/aboutUsImage")]
+    [Authorize(Roles = "admin")]
+
     public class AboutUsImageController : Controller
     {
         private readonly DataContext _dataContext;
