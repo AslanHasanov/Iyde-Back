@@ -52,34 +52,24 @@
             </div>
             <div class="col-lg-6">
                 <div class="size-price d-flex justify-content-center align-items-center mt-3">
-                    <span style="width: 10rem;font-size: 26px;font-weight: 600">Ölçü ml :</span>
+                    <span style="width: 25rem;font-size: 26px;font-weight: 600">Ətrin Həcmini Seçin :</span>
                 
                     <select class="form-select size-cart" style="width:67%"  asp-for="SizeId"  asp-items="@(new SelectList(Model.Sizes, nameof(ShopViewModel.SizeViewModeL.Id), nameof(ShopViewModel.SizeViewModeL.Title)))">
                     </select>
+                    <input type="hidden" value="@Model.SizeId" />
                 
                
 
                 </div>
                 <div class="product-detail-buttons justify-content-center">
-                    <span class="quantity-picker">
-                        <a asp-route="client-individual-basket-delete" asp-route-productId="@Model.Id" asp-route-sizeId="@Model.SizeId" class="minus-btn quantity-modifier modifier-left">–</a>
-                        <input class="quantity-display" type="text" value="@Model.Quantity" style="width: 4rem;">
-                        <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="quantity-modifier modifier-right plus-btn">＋</a>
-                        <input type="hidden" value="@Model.SizeId"/>
-
-
-                    </span>
+                   
 
                     <a asp-route="client-basket-add" asp-route-id="@Model.Id" class="addToCard add-product-to-basket-single-btn ">
                         <i class="fa-solid fa-basket-shopping"></i>
                         Səbətə əlavə et
                     </a>
 
-@*                    <form method="POST" asp-route="client-basket-add" asp-route-id="@Model.Id" id="book-form-@Model.Id"></form>
-                    <button class="addToCard add-product-to-basket-single-btn " style="background-color:none; border:none;" type="submit" form="book-form-@Model.Id">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                        Səbətə əlavə et
-                    </button>*@
+
 
                 </div>
                 <div class="product-detail-tabs mb-5">
