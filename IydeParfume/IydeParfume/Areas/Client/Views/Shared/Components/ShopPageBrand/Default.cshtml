@@ -8,9 +8,9 @@
     @foreach (var item in Model)
     {
         <li class="list-group-item">
-        <input type="hidden" value="@item.Id" />
-            <a class=" select-brand" asp-route="client-shoppage-filter  " asp-route-brandId="@item.Id">@item.Title </a>
+            <input type="hidden" value="@item.Id" />
+            <a class="select-Brand" asp-route="client-shoppage-filter" asp-route-brandId="@item.Id">@item.Title </a>
         </li>
-        
+
     }
 </ul>

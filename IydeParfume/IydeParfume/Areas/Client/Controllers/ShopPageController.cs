@@ -50,7 +50,8 @@ namespace IydeParfume.Areas.Client.Controllers
         {
 
             return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, sort = sort,
-                categoryId = categoryId, minPrice = minPrice, maxPrice = maxPrice, tagId = seasonId,brandId=brandId,
+                categoryId = categoryId, minPrice = minPrice, maxPrice = maxPrice,
+                seasonId = seasonId,brandId=brandId,
             groupId=groupId,usageTimeId=usageTimeId});
         }
 

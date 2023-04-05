@@ -181,15 +181,26 @@
             <!-- Filter -->
             <div class="col-lg-3">
                 <div class="products-filter">
-                    <div class="search-area brands">
-                        <h2>Brendlər</h2>
+                    <form id="widgets-searchbox">
+                        <span>Search By Name or Price</span>
                         @using (Html.BeginForm("Filter", "ShopPage", FormMethod.Get))
                         {
-                            
+                            <div class="d-none">
+                                <b>Search By :</b>
+                                @Html.RadioButton("searchBy","Name",true) <text>Name</text>
+                                <br />
+                            </div>
 
-                            @Html.TextBox("search", null, new { @class="form-control", @placeholder="Brend axtar"} )
+
+                            @Html.TextBox("search", null, new { @class="search-box-product"})
                             <button class="search-btn-product" type="submit" aria-label="searchbtn"><i class="pe-7s-search"></i></button>
                         }
+
+
+                    </form>
+                    <div class="search-area brands">
+                        <h2>Brendlər</h2>
+                       
                             @await Component.InvokeAsync(nameof(ShopPageBrand))
 
                          
@@ -200,7 +211,7 @@
 
                        
                     </div>
-                    <div class="search-area price">
+                    @*<div class="search-area price">
                         <h2>Qiymət</h2>
                             <div class="mtext-102 cl2 p-b-15">
                                 Qiymət
@@ -216,6 +227,35 @@
                                 <a class="shoppage-url" asp-route="client-shoppage-filter">
                                 </a>
                             </div>
+                    </div>*@
+                    <div class="search-area price">
+                        <h2>Qiymət</h2>
+                        <ul class="list-group" id="myList">
+                            <li class="list-group-item">
+                                    <input class="minPrice" value="0" type="hidden">
+                                    <input class="MaxPrice" value="50" type="hidden">
+                                <a class="searchproductPrice shoppage-url" asp-route="client-shoppage-filter">0-50 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="minPrice" value="50" type="hidden">
+                                <input class="MaxPrice" value="100" type="hidden">
+                                <a class="searchproductPrice shoppage-url" asp-route="client-shoppage-filter">50-100 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="minPrice" value="100" type="hidden">
+                                <input class="MaxPrice" value="200" type="hidden">
+                                <a class="searchproductPrice shoppage-url" asp-route="client-shoppage-filter">100-200 <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="minPrice" value="200" type="hidden">
+                                <input class="MaxPrice" value="500" type="hidden">
+                                <a class="searchproductPrice shoppage-url" asp-route="client-shoppage-filter">200+ <i class="fa-solid fa-manat-sign"></i></a>
+                            </li>
+                            <li class="list-group-item">
+                              
+                                <a href="">Bütün Nəticələr </a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="search-area groups">
                         <h2>Qruplar</h2>

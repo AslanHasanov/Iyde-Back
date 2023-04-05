@@ -401,3 +401,43 @@
     display: block !important;
   }
 }/*# sourceMappingURL=products.css.map */
+/* ---Range Slider--- */
+.price-filter .irs-min, .price-filter .irs-max {
+  display: none;
+}
+
+.price-filter .irs--flat .irs-bar,
+.price-filter .irs--flat .irs-line {
+  height: 4px;
+}
+
+.price-filter .irs--flat .irs-from,
+.price-filter .irs--flat .irs-to,
+.price-filter .irs--flat .irs-single {
+  top: -5px;
+  background-color: #abd373;
+}
+
+.price-filter .irs--flat .irs-from:before,
+.price-filter .irs--flat .irs-to:before,
+.price-filter .irs--flat .irs-single:before {
+  border-top-color: #abd373;
+}
+
+.price-filter .irs--flat .irs-bar {
+  background-color: #abd373;
+}
+
+.price-filter .irs--flat .irs-handle {
+  border: 3px solid #abd373;
+  background-color: #f9f9f9;
+  border-radius: 100%;
+  cursor: pointer;
+  top: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.price-filter .irs--flat .irs-handle i {
+  display: none;
+}

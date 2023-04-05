@@ -36,7 +36,6 @@ $(document).on("click", '.select-season', function (e) {
     e.preventDefault();
     let aHref = e.target.href;
     let season = e.target.previousElementSibling
-    console.log(category)
     let SeasonId = season.value;
 
     $.ajax(
@@ -58,7 +57,7 @@ $(document).on("click", '.select-season', function (e) {
 
         });
 })
-$(document).on("click", '.select-brand', function (e) {
+$(document).on("click", '.select-Brand', function (e) {
     e.preventDefault();
     let aHref = e.target.href;
     let brand = e.target.previousElementSibling
@@ -108,7 +107,7 @@ $(document).on("click", '.select-group', function (e) {
 
         });
 })
-$(document).on("click", '.select-usagetime', function (e) {
+$(document).on("click", '.select-usageTime', function (e) {
     e.preventDefault();
     let aHref = e.target.href;
     let usagetime = e.target.previousElementSibling
@@ -133,3 +132,48 @@ $(document).on("click", '.select-usagetime', function (e) {
 
         });
 })
+
+
+
+
+
+$(document).on("click", '.searchproductPrice', function (e) {
+
+    e.preventDefault();
+    let aHref = e.target.href;
+
+    let MinPrice = e.target.parentElement.children[0].value;
+    console.log(MinPrice)
+  
+
+    let MaxPrice = e.target.parentElement.children[1].value;
+    console.log(MaxPrice)
+
+
+
+
+    let aHref = document.querySelector(".searchproductPrice").href;
+
+    $.ajax(
+        {
+            url: aHref,
+
+            data: {
+                MinPrice: MinPrice,
+                MaxPrice: MaxPrice
+            },
+
+            success: function (response) {
+                $('.filtered-area').html(response);
+
+
+            },
+            error: function (err) {
+                $(".product-details-modal").html(err.responseText);
+
+            }
+
+        });
+
+
+});

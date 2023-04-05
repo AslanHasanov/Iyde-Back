@@ -7,7 +7,7 @@ namespace IydeParfume.Contracts.Email
         public static class Subject
         {
             public const string ACTIVATION_MESSAGE = $"Activation account";
-            public const string NOTIFICATION_MESSAGE = $"Sifarishinizin Statusu Yenilendi Xais Edirik Yoxlayin";
+            public const string NOTIFICATION_MESSAGE = $"Sifarishinizin Statusu Yenilendi";
 
         }
 
