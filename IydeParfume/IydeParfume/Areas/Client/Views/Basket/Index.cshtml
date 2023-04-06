@@ -1,7 +1,7 @@
-﻿@using IydeParfume.Areas.Client.ViewComponents
+﻿    @using IydeParfume.Areas.Client.ViewComponents
 
 <!-- Basket -->
-<div class="Basket-section cartPageJs">
+<div class="Basket-section">
     <div class="container ">
         <div class="basketHeader">
             <h5 class="title">SƏBƏTİM</h5>
@@ -9,9 +9,12 @@
         </div>
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="col-lg-10 ">
+            <div class="col-lg-10">
 
-            @await Component.InvokeAsync(nameof(Basket))
+                <div class="right-card revan">
+
+                    @await Component.InvokeAsync(nameof(Basket))
+                </div>
             </div>
 
             <div class="col-lg-1"></div>

@@ -28,8 +28,11 @@ namespace IydeParfume.Areas.Client.Controllers
         #region Index'
 
         [HttpGet("index", Name = "client-shoppage-index")]
-        public IActionResult Index()
+        public IActionResult Index(string searchBy, string search, int? categoryId = null)
         {
+            ViewBag.CategoryId = categoryId;
+            ViewBag.SearchBy = searchBy;
+            ViewBag.Search = search;
             return View();
         }
 

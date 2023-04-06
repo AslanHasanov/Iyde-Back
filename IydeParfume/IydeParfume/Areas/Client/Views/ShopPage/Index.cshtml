@@ -262,7 +262,7 @@
             <div class="col-lg-9">
                 <div class="cards d-flex fustify-content-evenly">
                     <div class="row filtered-area">
-                        @await Component.InvokeAsync(nameof(ShopPageProduct), new { searchBy = ViewBag.SearchBy, search = ViewBag.Search })
+                        @await Component.InvokeAsync(nameof(ShopPageProduct), new { searchBy = ViewBag.SearchBy, search = ViewBag.Search , categoryId =  ViewBag.CategoryId })
 
                       
                        

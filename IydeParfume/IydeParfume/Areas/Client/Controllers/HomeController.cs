@@ -35,6 +35,15 @@ namespace IydeParfume.Areas.Client.Controllers
 
             return View(model);
         }
-       
+
+
+        [HttpGet("indexsearch", Name = "client-homesearch-index")]
+        public async Task<IActionResult> Search(string searchBy, string search, int? categoryId = null)
+        {
+
+            return RedirectToRoute("client-shoppage-index", new { searchBy = searchBy, search = search, categoryId = categoryId });
+
+        }
+
     }
 }

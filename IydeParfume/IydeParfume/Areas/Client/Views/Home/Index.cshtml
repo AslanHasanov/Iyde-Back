@@ -39,7 +39,7 @@
 
         @foreach (var item in Model.Categories)
         {
-            <a class="category-box-child a" asp-route="client-shoppage-filter" asp-route-categoryId="@item.Id">
+            <a class="category-box-child a" asp-route="client-shoppage-index" asp-route-categoryId="@item.Id">
                 <img src="~/@item.BImageUrl" alt="category"> 
                 <h4>@item.Title</h4>
             </a>

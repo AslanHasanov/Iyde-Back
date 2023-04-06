@@ -1,4 +1,5 @@
-﻿using IydeParfume.Areas.Client.ViewModels.Basket;
+﻿using IydeParfume.Areas.Client.ViewComponents;
+using IydeParfume.Areas.Client.ViewModels.Basket;
 using IydeParfume.Areas.Client.ViewModels.Shop;
 using IydeParfume.Database;
 using IydeParfume.Services.Abstracts;
@@ -44,14 +45,13 @@ namespace IydeParfume.Areas.Client.Controllers
 
             if (productCookiViewModel.Any())
             {
-                //return ViewComponent(nameof(Basket), productCookiViewModel);
-                return RedirectToRoute("client-basket-index");
+                return ViewComponent(nameof(Basket), productCookiViewModel);
+                //return RedirectToRoute("client-basket-index");
 
 
             }
-            return RedirectToRoute("client-basket-index");
 
-            //return ViewComponent(nameof(Basket), product);
+            return ViewComponent(nameof(Basket), product);
         }
 
         [HttpGet("basket-delete/{productId}/{sizeId}", Name = "client-basket-delete")]
@@ -93,6 +93,7 @@ namespace IydeParfume.Areas.Client.Controllers
 
             //return ViewComponent(nameof(Basket), productCookieViewModel);
             return RedirectToRoute("client-basket-index");
+
 
         }
        
@@ -155,8 +156,8 @@ namespace IydeParfume.Areas.Client.Controllers
             }
             await _dataContext.SaveChangesAsync();
 
-            //return ViewComponent(nameof(Basket), productCookieViewModel);
-            return RedirectToRoute("client-basket-index");
+            return ViewComponent(nameof(Basket), productCookieViewModel);
+         
 
         }
 
