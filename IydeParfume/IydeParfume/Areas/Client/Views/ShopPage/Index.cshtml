@@ -1,18 +1,18 @@
 ﻿@using IydeParfume.Areas.Client.ViewComponents
 
 <!-- Products -->
-<div class="products">
+<div class="products pt-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="breadCrumb">
+                <div class="breadCrumb mt-0">
                     <a href="/">İydə Perfumery</a>
                     <i class="fa-solid fa-chevron-right"></i>
                     <div>Ətirlər</div>
                 </div>
                 <!-- Products Header -->
-                <div class="row products-header">
-                    <div class="col-lg-3 products-title">
+                <div class="row products-header mt-4">
+                    <div class="col-lg-3 products-title mb-3">
                         Ətirlər
                         @*<span>( nəticə)</span>*@
                     </div>
@@ -21,39 +21,37 @@
                             <div class="products-top-filter-child">
                                 
                             </div>
-                            <div class="dropdown search-sort">
-                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-arrow-down-a-z"></i>
-                                    A-dan Z-yə
-
-                                </button>
-                                <ul class="dropdown-menu">
+                            <li class="menu-item">
+                                <i class="fa-solid fa-arrow-down-a-z"></i>
+                                <a>   A-dan Z-yə </a>
+                                <ul id="drop-menu">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-ite" asp-route="client-shoppage-filter" asp-route-sort="1">
                                             <i class="fa-solid fa-arrow-down-z-a"></i>
                                             Z-dən A-ya
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-ite" asp-route="client-shoppage-filter" asp-route-sort="2">
                                             <i class="fa-regular fa-star"></i>
                                             Populyarlığa Görə
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-ite" asp-route="client-shoppage-filter" asp-route-sort="3">
                                             <i class="fa-solid fa-arrow-down-1-9"></i>
                                             Ucuzdan Bahaya
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-ite" asp-route="client-shoppage-filter" asp-route-sort="4">
                                             <i class="fa-solid fa-arrow-up-1-9"></i>
                                             Bahadan Ucuza
                                         </a>
                                     </li>
+
                                 </ul>
-                            </div>
+                            </li>
                             <div class="buttons-filter">
                                 <button class="btn filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                     <i class="fa-solid fa-filter"></i>
@@ -181,23 +179,7 @@
             <!-- Filter -->
             <div class="col-lg-3">
                 <div class="products-filter">
-                    <form id="widgets-searchbox">
-                        <span>Search By Name or Price</span>
-                        @using (Html.BeginForm("Filter", "ShopPage", FormMethod.Get))
-                        {
-                            <div class="d-none">
-                                <b>Search By :</b>
-                                @Html.RadioButton("searchBy","Name",true) <text>Name</text>
-                                <br />
-                            </div>
-
-
-                            @Html.TextBox("search", null, new { @class="search-box-product"})
-                            <button class="search-btn-product" type="submit" aria-label="searchbtn"><i class="pe-7s-search"></i></button>
-                        }
-
-
-                    </form>
+                   
                     <div class="search-area brands">
                         <h2>Brendlər</h2>
                        
