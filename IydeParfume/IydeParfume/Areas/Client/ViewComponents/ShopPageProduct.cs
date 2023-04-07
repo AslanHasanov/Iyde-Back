@@ -20,7 +20,7 @@ namespace IydeParfume.Areas.Client.ViewComponents
             _fileService = fileService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string? searchBy = null, string? search = null, 
+        public async Task<IViewComponentResult> InvokeAsync(string? searchBy = null, string? search = null, [FromQuery] int? sort = null,
             int? minPrice = null, int? maxPrice = null,[FromQuery] int? categoryId = null,
             [FromQuery] int? sizeId = null, [FromQuery] int? seasonId = null, [FromQuery] int? brandId = null,
             [FromQuery] int? groupId = null, [FromQuery] int? usageTimeId = null)
@@ -31,6 +31,28 @@ namespace IydeParfume.Areas.Client.ViewComponents
             {
                 productsQuery = productsQuery
                     .Where(p => p.Name!.StartsWith(search!) || Convert.ToString(p.Price).StartsWith(search!) || search == null);
+            }
+            else if (sort is not null)
+            {
+                switch (sort)
+                {
+                    case 1:
+                        productsQuery = productsQuery.OrderBy(p => p.Name);
+                        break;
+
+                    case 2:
+                        productsQuery = productsQuery.OrderByDescending(p => p.Name);
+                        break;
+                    case 3:
+                        productsQuery = productsQuery.OrderBy(p => p.CreatedAt);
+                        break;
+                    case 4:
+                        productsQuery = productsQuery.OrderBy(p => p.Price);
+                        break;
+                    case 5:
+                        productsQuery = productsQuery.OrderByDescending(p => p.Price);
+                        break;
+                }
             }
             else if (minPrice is not null && maxPrice is not null)
             {

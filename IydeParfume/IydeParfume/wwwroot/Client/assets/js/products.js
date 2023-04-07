@@ -141,7 +141,27 @@ $(document).on("click", '.select-usageTime', function (e) {
         });
 })
 
+$(document).on("click", ".sort", function (e) {
+    e.preventDefault();
 
+
+    let aHref = e.target.href;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: aHref,
+            success: function (response) {
+                $('.filtered-area').html(response);
+            },
+            error: function (err) {
+                $(".product-details-modal").html(err.responseText);
+
+            }
+
+        });
+
+})
 
 
 
