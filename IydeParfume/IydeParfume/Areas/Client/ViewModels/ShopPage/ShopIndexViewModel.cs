@@ -4,7 +4,7 @@
     {
         public ShopIndexViewModel(List<CategoryListItemViewModel> categories, List<SizeListItemViewModel> sizes,
             List<SeasonListItemViewModel> seasons, List<BrandListItemViewModel> brands,
-            List<GroupListItemViewModel> groups, List<UsageTimeListItemViewModel> usageTimes)
+            List<GroupListItemViewModel> groups, List<UsageTimeListItemViewModel> usageTimes, List<PriceListItemViewModel> prices)
         {
             Categories = categories;
             Sizes = sizes;
@@ -12,6 +12,7 @@
             Brands = brands;
             Groups = groups;
             UsageTimes = usageTimes;
+            Prices = prices;
         }
 
         public List<CategoryListItemViewModel> Categories { get; set; }
@@ -22,6 +23,7 @@
         public List<BrandListItemViewModel> Brands { get; set; }
         public List<GroupListItemViewModel> Groups { get; set; }
         public List<UsageTimeListItemViewModel> UsageTimes { get; set; }
+        public List<PriceListItemViewModel> Prices { get; set; }
 
 
 
@@ -88,6 +90,18 @@
     public class UsageTimeListItemViewModel
     {
         public UsageTimeListItemViewModel(int id, string title)
+        {
+            Id = id;
+            Title = title;
+        }
+
+        public int Id { get; set; }
+        public string Title { get; set; }
+    }
+
+    public class PriceListItemViewModel
+    {
+        public PriceListItemViewModel(int id, string title)
         {
             Id = id;
             Title = title;

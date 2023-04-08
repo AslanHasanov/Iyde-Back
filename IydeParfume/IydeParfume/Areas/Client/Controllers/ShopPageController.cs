@@ -41,7 +41,8 @@ namespace IydeParfume.Areas.Client.Controllers
         #region Filter'
 
         [HttpGet("filter", Name = "client-shoppage-filter")]
-        public async Task<IActionResult> Sort(string? searchBy, string? search, 
+        public async Task<IActionResult> Sort(string? searchBy, string? search,
+            [FromQuery] int? startPriceId,
             [FromQuery] int? sort = null,
             [FromQuery] int? categoryId = null,
             decimal? minPrice = null,
@@ -49,10 +50,11 @@ namespace IydeParfume.Areas.Client.Controllers
             [FromQuery] int? seasonId = null,
             [FromQuery] int? brandId = null,
             [FromQuery] int? groupId = null,
-            [FromQuery] int? usageTimeId = null) //baxaq o size olan yer
+            [FromQuery] int? usageTimeId = null
+            ) //sende basqa curdu deye. birdene islemeyene baxim price da ele edek.
         {
 
-            return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, sort = sort,
+            return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, startPriceId = startPriceId, sort = sort,
                 categoryId = categoryId, minPrice = minPrice, maxPrice = maxPrice,
                 seasonId = seasonId,brandId=brandId,
             groupId=groupId,usageTimeId=usageTimeId});

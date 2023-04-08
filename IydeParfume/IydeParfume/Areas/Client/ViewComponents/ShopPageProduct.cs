@@ -4,7 +4,7 @@ using IydeParfume.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using IydeParfume.Areas.Client.ViewModels.ShopPage;
-
+using IydeParfume.Contracts.ProductPrice;
 
 namespace IydeParfume.Areas.Client.ViewComponents
 {
@@ -20,7 +20,7 @@ namespace IydeParfume.Areas.Client.ViewComponents
             _fileService = fileService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string? searchBy = null, string? search = null, [FromQuery] int? sort = null,
+        public async Task<IViewComponentResult> InvokeAsync([FromQuery] int? startPriceId, string? searchBy = null, string? search = null, [FromQuery] int? sort = null,
             int? minPrice = null, int? maxPrice = null,[FromQuery] int? categoryId = null,
             [FromQuery] int? sizeId = null, [FromQuery] int? seasonId = null, [FromQuery] int? brandId = null,
             [FromQuery] int? groupId = null, [FromQuery] int? usageTimeId = null)
@@ -37,7 +37,7 @@ namespace IydeParfume.Areas.Client.ViewComponents
                 switch (sort)
                 {
                     case 1:
-                        productsQuery = productsQuery.OrderBy(p => p.Name);
+                        productsQuery = productsQuery.OrderBy(p => p.Name);//men basqa cur yazmisam)ok sen yazan deymeden deyisirem.ok
                         break;
 
                     case 2:
@@ -74,6 +74,23 @@ namespace IydeParfume.Areas.Client.ViewComponents
                     .Where(p => groupId == null || p.ProductGroups!.Any(pt => pt.GroupId == groupId))
                     .Where(p => usageTimeId == null || p.ProductUsageTimes!.Any(pt => pt.UsageTimeId == usageTimeId));
 
+            }
+
+            else if (startPriceId == Price.LOW)//qiymetler nece olacaq? 0-50  50-100 100-200 200+
+            {
+                productsQuery = productsQuery.Where(p => p.Price < 50);
+            }
+            else if (startPriceId == Price.MEDIUM)
+            {
+                productsQuery = productsQuery.Where(p => p.Price >= 50 && p.Price < 100);//view?
+            }
+            else if (startPriceId == Price.HİGH)
+            {
+                productsQuery = productsQuery.Where(p => p.Price >= 100 && p.Price < 200);
+            }
+            else if (startPriceId == Price.MOSTHigh)
+            {
+                productsQuery = productsQuery.Where(p => p.Price >= 200);
             }
             else
             {
