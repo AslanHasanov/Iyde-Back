@@ -31,20 +31,35 @@ $(document).on("click", ".add-product-to-basket-single-btn", function (e) {
         });
 })
 
+$(document).on("click", ".add-to-basket", function (e) {
+    e.preventDefault();
 
 
-//$(document).on("click", ".plus-btn", function (e) {
-//    e.preventDefault();
-//    console.log(e.target)
+    let aHref = e.target.href;
+    console.log(aHref)
 
-//    fetch(e.target.href)
-//        .then(response => response.text())
-//        .then(data => {
-//            $('.right-card').html(data);
+    $.ajax(
+        {
+            type: "POST",
+            url: aHref,
+            data: {
+            },
+            success: function (response) {
+
+                alert("Məhsul Əlavə Edildi");
 
 
-//        })
-//})
+            },
+            error: function (err) {
+                $(".product-details-modal").html(err.responseText);
+
+            }
+
+        });
+})
+
+
+
 
 $(document).on("click", ".minus-btn", function (e) {
     e.preventDefault();

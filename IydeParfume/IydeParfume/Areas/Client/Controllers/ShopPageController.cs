@@ -28,11 +28,12 @@ namespace IydeParfume.Areas.Client.Controllers
         #region Index'
 
         [HttpGet("index", Name = "client-shoppage-index")]
-        public IActionResult Index(string searchBy, string search, int? categoryId = null)
+        public IActionResult Index(string searchBy, string search, int? categoryId = null, int? startPriceId = null)
         {
             ViewBag.CategoryId = categoryId;
             ViewBag.SearchBy = searchBy;
             ViewBag.Search = search;
+            ViewBag.StartPriceId = startPriceId;
             return View();
         }
 
@@ -51,7 +52,7 @@ namespace IydeParfume.Areas.Client.Controllers
             [FromQuery] int? brandId = null,
             [FromQuery] int? groupId = null,
             [FromQuery] int? usageTimeId = null
-            ) //sende basqa curdu deye. birdene islemeyene baxim price da ele edek.
+            ) 
         {
 
             return ViewComponent(nameof(ShopPageProduct), new { searchBy = searchBy, search = search, startPriceId = startPriceId, sort = sort,

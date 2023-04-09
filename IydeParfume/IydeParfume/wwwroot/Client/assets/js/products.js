@@ -165,43 +165,42 @@ $(document).on("click", ".sort", function (e) {
 
 
 
-//$(document).on("click", '.seracPriceFilter', function (e) {
+//$(document).on("click", '.select-ca"', function (e) {
 
 //    e.preventDefault();
 
-//    let minPrice = e.target.parentElement.children[0].value;
-//    let MinPrice = parseInt(minPrice);
-//    console.log(MinPrice)
+//    let price = e.target.href
+//    console.log(e)
   
 
-//    let maxPrice = e.target.parentElement.children[1].value;
-//    let MaxPrice = parseInt(maxPrice);
-//    console.log(MaxPrice)
+//    //let maxPrice = e.target.parentElement.children[1].value;
+//    //let MaxPrice = parseInt(maxPrice);
+//    //console.log(MaxPrice)
 
 
 
 
-//    let aHref = document.querySelector(".searchproductPrice").href;
-//    console.log(aHref);
+//    //let aHref = document.querySelector(".searchproductPrice").href;
+//    //console.log(aHref);
 
 
-//    $.ajax(
-//        {
-//            type: "GET",
-//            url: aHref,
+//    //$.ajax(
+//    //    {
+//    //        type: "GET",
+//    //        url: aHref,
 
-//            data: {
-//                MinPrice: MinPrice,
-//                MaxPrice: MaxPrice
-//            },
+//    //        data: {
+//    //            MinPrice: MinPrice,
+//    //            MaxPrice: MaxPrice
+//    //        },
 
-//            success: function (response) {
-//                $('.filtered-area').html(response);
+//    //        success: function (response) {
+//    //            $('.filtered-area').html(response);
 
-//            },
-//            error: function (err) {
-//                $(".modalProduct").html(err.responseText);
-//            }
+//    //        },
+//    //        error: function (err) {
+//    //            $(".modalProduct").html(err.responseText);
+//    //        }
 
-//        });
+//    //    });
 //});
