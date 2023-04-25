@@ -249,6 +249,7 @@
   width: 100%;
 }
 
+
 .categorySection .category {
   background-color: #fff;
   color: #444;
@@ -660,6 +661,9 @@
 @media (max-width: 576px) {
   .headerTop, .headerMiddleParent, .headerBottom {
     display: none;
+  }
+  .Slider img{
+  width: inherit;
   }
   .footer-social {
     margin-top: 2rem;

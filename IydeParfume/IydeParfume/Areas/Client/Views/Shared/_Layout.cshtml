@@ -80,9 +80,9 @@
                                         @Html.RadioButton("searchBy","Name",true)<text>Name</text>
                                         <br />
                                     </div>
-                                    @Html.TextBox("search",null, new { @placeholder = "Search..." ,@class="search-box"})
+                                    @Html.TextBox("search",null, new { @placeholder = "ÖZ ƏTRİNİ AXTAR..." ,@class="search-box"})
                                 }
-                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
 
@@ -168,45 +168,23 @@
                             <ul class=" col-lg-2 col-6 ">
                                 <div class="footerCollapse">
                                 <li>
-                                    <a class="title" href="/products">Ətirlər</a>
+                                    <a class="title" asp-route="client-shoppage-index">Ətirlər</a>
                                 </li>
                                 <li>
-                                    <a href="/products?gender=male">Kişi ətirləri</a>
+                                    <a asp-route="client-shoppage-index">Kişi ətirləri</a>
                                 </li>
                                 <li>
-                                    <a href="/products?gender=female">Qadın ətirləri</a>
+                                    <a asp-route="client-shoppage-index">Qadın ətirləri</a>
                                 </li>
                                 <li>
-                                    <a href="/products?gender=unisex">Unisex ətirlər</a>
+                                    <a asp-route="client-shoppage-index">Unisex ətirlər</a>
                                 </li>
                                 <li>
-                                    <a href="/products?gender=children">Uşaq ətirləri</a>
+                                    <a asp-route="client-shoppage-index">Uşaq ətirləri</a>
                                 </li>
                         </div>
                         </ul>
 
-                        <ul class=" col-lg-2 col-6 ">
-                            <div class="footerCollapse">
-                            <li>
-                                <a class="title" href="/products">Özəl kolleksiya</a>
-                            </li>
-                            <li>
-                                <a href="/products?gender=male">Khan Perfume</a>
-                            </li>
-                            <li>
-                                <a href="/products?gender=female">Yeddi Gözəl</a>
-                            </li>
-                            <li>
-                                <a href="/products?gender=unisex">Xəmsə</a>
-                            </li>
-                            <li>
-                                <a href="/products?gender=children">Qarabağ </a>
-                            </li>
-                            <li>
-                                <a href="/products?gender=children">Sport</a>
-                            </li>
-                    </div>
-                    </ul>
 
                     <ul class=" col-lg-2 col-6 ">
                         <div class="footerCollapse">
@@ -214,19 +192,10 @@
                             <a class="title" href="/products">İYDƏ PERFUMERY</a>
                         </li>
                         <li>
-                            <a href="/products?gender=male">Bloq</a>
+                            <a asp-route="client-blog-index">Bloq</a>
                         </li>
                         <li>
-                            <a href="/products?gender=female">Şirkət haqqında</a>
-                        </li>
-                        <li>
-                            <a href="/products?gender=unisex">Hədiyyə kartları</a>
-                        </li>
-                        <li>
-                            <a href="/products?gender=children">MAĞAZALAR</a>
-                        </li>
-                        <li>
-                            <a href="/products?gender=children">Hədiyyə paketləri</a>
+                                <a asp-route="client-aboutUs-index">Şirkət haqqında</a>
                         </li>
                 </div>
                 </ul>
@@ -234,31 +203,22 @@
                 <ul class=" col-lg-2 col-6 ">
                     <div class="footerCollapse">
                     <li>
-                        <a class="title" href="/products">Dəstək</a>
+                            <a class="title" asp-route="client-contact-index">Dəstək</a>
                     </li>
                     <li>
-                        <a href="/products?gender=male">Sifariş etmək</a>
+                            <a asp-route="client-supportOrder-index">Sifariş etmək</a>
                     </li>
                     <li>
-                        <a href="/products?gender=female">Çatdırılma</a>
+                            <a asp-route="client-supportDelivery-index">Çatdırılma</a>
                     </li>
                     <li>
-                        <a href="/products?gender=unisex">Ödəniş</a>
-                    </li>
-                    <li>
-                        <a href="/products?gender=children">Loyallıq proqramı</a>
-                    </li>
-                    <li>
-                        <a href="/products?gender=children">Sual-cavab</a>
+                            <a asp-route="client-SupportPayment-index">Ödəniş</a>
                     </li>
                     <li>
                         <a href="/products?gender=children">İstfadə şərtləri</a>
                     </li>
                     <li>
-                        <a href="/products?gender=children">Məxfilik siyasəti</a>
-                    </li>
-                    <li>
-                        <a href="/products?gender=children">Bizimlə əlaqə</a>
+                            <a asp-route="client-contact-index">Bizimlə əlaqə</a>
                     </li>
             </div>
             </ul>
@@ -266,7 +226,7 @@
             <ul class=" col-lg-2 col-12 ">
                 <div class="footerCollapse">
                 <li>
-                    <a class="title" href="/products">Əlaqə saxlamaq</a>
+                        <a class="title" asp-route="client-contact-index">Əlaqə saxlamaq</a>
                 </li>
                 <li>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.61187 4.95707C2.48394 3.64588 3.56544 2.62109 4.81474 2.62109C5.86553 2.62109 6.78147 3.33624 7.03632 4.35565L7.28683 5.35768C7.29341 5.38399 7.29991 5.40994 7.30632 5.43554C7.4512 6.01412 7.55122 6.41353 7.52506 6.80647C7.49744 7.22151 7.3667 7.62309 7.14468 7.97483C6.93449 8.30785 6.61849 8.57183 6.16076 8.95421C6.1405 8.97113 6.11997 8.98828 6.09916 9.00568L5.07177 9.86461C6.00252 11.5592 7.33665 12.8934 9.03128 13.8241L9.89021 12.7967C9.90761 12.7759 9.92476 12.7554 9.94168 12.7351C10.3241 12.2774 10.588 11.9614 10.9211 11.7512C11.2728 11.5292 11.6744 11.3984 12.0894 11.3708C12.4824 11.3447 12.8818 11.4447 13.4603 11.5896C13.4859 11.596 13.5119 11.6025 13.5382 11.6091L14.5402 11.8596C15.5596 12.1144 16.2748 13.0304 16.2748 14.0811C16.2748 15.3304 15.25 16.4119 13.9388 16.284C12.0724 16.1019 10.3934 15.6357 8.93156 14.9012C6.76004 13.8101 5.08578 12.1359 3.99469 9.96433C3.26017 8.50247 2.79397 6.82351 2.61187 4.95707ZM9.95644 14.2766C11.1595 14.7974 12.5227 15.1411 14.0359 15.2887C14.6925 15.3528 15.2748 14.809 15.2748 14.0811C15.2748 13.4892 14.8719 12.9733 14.2977 12.8297L13.2957 12.5792C12.6087 12.4075 12.3721 12.3542 12.1558 12.3686C11.9068 12.3852 11.6659 12.4636 11.4548 12.5968C11.2715 12.7125 11.1116 12.8949 10.6574 13.4381L9.95644 14.2766ZM4.61931 8.93945L5.45776 8.23848C6.00102 7.78429 6.18337 7.62435 6.29904 7.44108C6.43225 7.23003 6.5107 6.98908 6.52727 6.74006C6.54166 6.52382 6.48843 6.28718 6.31669 5.60021L6.06618 4.59818C5.92262 4.02394 5.40666 3.62109 4.81474 3.62109C4.08693 3.62109 3.54308 4.20338 3.60715 4.85996C3.75479 6.37319 4.0985 7.73641 4.61931 8.93945Z" fill="#FDFCFC"></path></svg>
